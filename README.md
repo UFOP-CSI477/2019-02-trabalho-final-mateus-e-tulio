@@ -7,14 +7,14 @@
 
 ### Resumo
 
-  O objetivo deste documento é apresentar uma proposta para o trabalho a ser desenvolvido na disciplina CSI477 -- Sistemas WEB I. Nele será abordado uma plataforma web chamada **Trampo**, um sistema colaborativo de prestação de serviços gerais.
+  O objetivo deste documento é apresentar uma proposta para o trabalho a ser desenvolvido na disciplina CSI477 -- Sistemas WEB I. Será abordada uma plataforma web que servirá como meio para prestação e contratação de serviços gerais. A plataforma se chamará **Trampo**.
 
 <!-- Apresentar o tema. -->
 ### 1. Tema
 
-  O trabalho final tem como tema o desenvolvimento de uma plataforma para contratação e prestação de serviços autônomos em diversas áreas -- **Trampo**.
+  O trabalho final tem como tema o desenvolvimento de uma plataforma para contratação e prestação de serviços em diversas áreas, denominada **Trampo**.
   
-  **Trampo** é um site para oferecer/solicitar serviços de curta duração. A  estrutura dele será separada entre categorias, entre solicitar ou oferecer um serviço e entre bairros/cidades/estados.
+  **Trampo** tem como principal foco serviços de curta duração e sua estrutura será separada entre categorias, entre solicitar ou oferecer um serviço e entre bairros/cidades/estados.
 
 <!-- Descrever e limitar o escopo da aplicação. -->
 ### 2. Escopo
@@ -22,10 +22,10 @@
   Este projeto terá as seguintes funcionalidades:
   
    * Cadastro e gerenciamento de dados pessoais;
-   * Anunciar um serviço como prestador;
-   * Anunciar um serviço como contratante;
-   * Se disponibilizar para prestação de serviço anunciado;
-   * Contratar um serviço anunciado;
+   * Prestador poderá anunciar um serviço;
+   * Contratante poderá anunciar um serviço;
+   * Prestador poderá indicar interesse em atender um serviço anunciado por um contratante;
+   * Contratante poderá contratar um serviço anunciado por um prestador;
    * Dar *feedback* como prestador ou contratante sobre determinado serviço.
    * Analisar perfil de outros usuários;
 
@@ -34,7 +34,7 @@
 
   Neste trabalho não serão considerados...
   * Um fluxo muito alto de requisições;
-  * Meios de comunicação privada embutidos no sistema (usuários poderão divulgar telefone celular ou e-mail);
+  * Meios de comunicação privada, como *chat*, embutidos no sistema (usuários poderão divulgar telefone celular ou e-mail e fazer a comunicação a partir disso);
 
 <!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
