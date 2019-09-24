@@ -39,8 +39,15 @@
 <!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
 
-  Protótipos para as páginas (descrever quais páginas) foram elaborados, e podem ser encontrados em...
-
-### 5. Referências
-
-  Referências podem ser incluídas, caso necessário. Utilize o padrão ABNT.
+  A seguir estão os protótipos para:
+  * Criação de publicações: ![alt-text][publicacao]
+  * Listagem de serviços: ![alt-text][servicos]
+  * Perfil dos usuários: ![alt-text][perfil]
+  * Cadastro de usuários: ![alt-text][cadastro]
+  * Login de usuários: ![alt-text][login]
+  
+  [publicacao]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/publicacao.png "Tela de criação de publicações"
+  [servicos]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/servicos.png "Tela de listagem de serviços"
+  [perfil]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/perfil.png "Tela de perfil do usuário"
+  [cadastro]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/cadastro.png "Tela de cadastro"
+  [login]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/login.png "Tela de login"
