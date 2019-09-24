@@ -14,7 +14,7 @@
 
   O trabalho final tem como tema o desenvolvimento de uma plataforma para contratação e prestação de serviços em diversas áreas, denominada **Trampo**.
   
-  **Trampo** tem como principal foco serviços de curta duração e sua estrutura será separada entre categorias, entre solicitar ou oferecer um serviço e entre bairros/cidades/estados.
+  A plataforma **Trampo** tem como principal foco serviços de curta duração e sua estrutura será separada entre categorias, entre solicitar ou oferecer um serviço e entre bairros/cidades/estados.
 
 <!-- Descrever e limitar o escopo da aplicação. -->
 ### 2. Escopo
