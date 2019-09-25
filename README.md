@@ -1,6 +1,8 @@
 # **CSI477-2019-02 - Proposta de Trabalho Final**
 ## *Grupo: Mateus Martins Pereira & Túlio Silva Jardim*
 
+![alt-text][logo]
+
 --------------
 
 <!-- Descrever um resumo sobre o trabalho. -->
@@ -55,3 +57,4 @@
   [login]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/login.png "Tela de login"
   [respostas]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/respostas.png "Tela de publicação e suas respostas"
   [feedback]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/feedback.png "Tela de avaliação do prestador"
+  [logo]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/logo.png "Logotipo da marca Trampo"
