@@ -40,9 +40,11 @@
 ### 4. Protótipo
 
   A seguir estão os protótipos para:
-  * Criação de publicações: ![alt-text][publicacao]
   * Listagem de serviços: ![alt-text][servicos]
   * Perfil dos usuários: ![alt-text][perfil]
+  * Criação de publicações: ![alt-text][publicacao]
+  * Respostas à publicação: ![alt-text][respostas]
+  * Avaliação do serviço prestado: ![alt-text][feedback]
   * Cadastro de usuários: ![alt-text][cadastro]
   * Login de usuários: ![alt-text][login]
   
@@ -51,3 +53,5 @@
   [perfil]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/perfil.png "Tela de perfil do usuário"
   [cadastro]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/cadastro.png "Tela de cadastro"
   [login]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/login.png "Tela de login"
+  [respostas]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/respostas.png "Tela de publicação e suas respostas"
+  [feedback]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/feedback.png "Tela de avaliação do prestador"
