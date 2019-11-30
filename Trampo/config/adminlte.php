@@ -134,7 +134,7 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'profile',
 
     'logout_url' => 'logout',
 
@@ -174,31 +174,31 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
-            'search' => true,
-            'topnav' => true,
-        ],
-        [
             'text'        => 'Notificações',
-            'url'         => 'admin/notifications',
+            'url'         => 'notifications',
             'icon'        => 'far fa-fw fa-bell',
             'label'       => 4,
             'label_color' => 'success',
         ],
         [
             'text' => 'Perfil',
-            'url'  => 'admin/settings',
+            'url'  => 'profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Criar Publicação',
-            'url'  => 'admin/publication',
+            'url'  => 'publish',
             'icon' => 'fas fa-fw fa-file-signature',
         ],
         [
             'text' => 'Serviços',
-            'url'  => 'admin/services',
+            'url'  => 'services',
             'icon' => 'fas fa-fw fa-tools',
+        ],
+        [
+            'text' => 'Autônomos',
+            'url'  => 'freelancers',
+            'icon' => 'fas fa-fw fa-people-carry',
         ]
     ],
 
