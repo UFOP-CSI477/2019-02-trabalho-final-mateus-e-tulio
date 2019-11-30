@@ -52,12 +52,8 @@
 
   ### 5. Configuração do Ambiente
 
-  1. Instalar Docker (PDO já deve estar instalado também)
-  2. Executar em /laradock: `docker-compose up -d nginx mysql phpmyadmin` (pode precisar de permissões de administrador)
-  3. Criar um banco de dados vazio chamado `trampo`
-  4. Em /Trampo/.env: Alterar linha 10 de `DB_HOST=laradock_mysql_1` para `DB_HOST=127.0.0.1`
-  5. Executar em /Trampo: `php artisan migrate` (pode precisar de permissões de administrador)
-  6. Em /Trampo/.env: Alterar linha 10 de `DB_HOST=127.0.0.1` para `DB_HOST=laradock_mysql_1`
+  1. Criar um banco de dados vazio chamado `trampo`
+  2. Executar em /Trampo: `php artisan migrate`
   
   [publicacao]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/publicacao.png "Tela de criação de publicações"
   [servicos]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/servicos.png "Tela de listagem de serviços"

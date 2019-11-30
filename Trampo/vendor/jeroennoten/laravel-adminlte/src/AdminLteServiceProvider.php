@@ -2,13 +2,16 @@
 
 namespace JeroenNoten\LaravelAdminLte;
 
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\Config\Repository;
-use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Container\Container;
-use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
+use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use JeroenNoten\LaravelAdminLte\Console\AdminLteInstallCommand;
+use JeroenNoten\LaravelAdminLte\Console\AdminLtePluginCommand;
+use JeroenNoten\LaravelAdminLte\Console\AdminLteStatusCommand;
+use JeroenNoten\LaravelAdminLte\Console\AdminLteUpdateCommand;
+use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
 use JeroenNoten\LaravelAdminLte\Http\ViewComposers\AdminLteComposer;
 
 class AdminLteServiceProvider extends BaseServiceProvider
@@ -33,9 +36,7 @@ class AdminLteServiceProvider extends BaseServiceProvider
 
         $this->loadTranslations();
 
-        $this->publishConfig();
-
-        $this->publishAssets();
+        $this->loadConfig();
 
         $this->registerCommands();
 
@@ -47,12 +48,7 @@ class AdminLteServiceProvider extends BaseServiceProvider
     private function loadViews()
     {
         $viewsPath = $this->packagePath('resources/views');
-
         $this->loadViewsFrom($viewsPath, 'adminlte');
-
-        $this->publishes([
-            $viewsPath => base_path('resources/views/vendor/adminlte'),
-        ], 'views');
     }
 
     private function loadTranslations()
@@ -60,28 +56,13 @@ class AdminLteServiceProvider extends BaseServiceProvider
         $translationsPath = $this->packagePath('resources/lang');
 
         $this->loadTranslationsFrom($translationsPath, 'adminlte');
-
-        $this->publishes([
-            $translationsPath => base_path('resources/lang/vendor/adminlte'),
-        ], 'translations');
     }
 
-    private function publishConfig()
+    private function loadConfig()
     {
         $configPath = $this->packagePath('config/adminlte.php');
 
-        $this->publishes([
-            $configPath => config_path('adminlte.php'),
-        ], 'config');
-
         $this->mergeConfigFrom($configPath, 'adminlte');
-    }
-
-    private function publishAssets()
-    {
-        $this->publishes([
-            $this->packagePath('resources/assets') => public_path(),
-        ], 'assets');
     }
 
     private function packagePath($path)
@@ -92,6 +73,9 @@ class AdminLteServiceProvider extends BaseServiceProvider
     private function registerCommands()
     {
         $this->commands(AdminLteInstallCommand::class);
+        $this->commands(AdminLteStatusCommand::class);
+        $this->commands(AdminLteUpdateCommand::class);
+        $this->commands(AdminLtePluginCommand::class);
     }
 
     private function registerViewComposers(Factory $view)
