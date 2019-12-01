@@ -12,14 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
-
-Auth::routes();
-
-Route::get('/home', function() {
-    return view('home');
-})->name('home')->middleware('auth');
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/notifications', 'UserController@notifications');
@@ -31,3 +25,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/profile/settings/general', 'UserController@generalSettings');
     Route::get('/profile/settings/security', 'UserController@securitySettings');
 });
+
+// Route::get('/home', function() {
+//     return view('home');
+// })->name('home')->middleware('auth');
+
+Auth::routes();
