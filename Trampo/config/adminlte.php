@@ -30,12 +30,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Trampo</b>',
+    'logo_img' => 'img/logo.png',
     'logo_img_class' => 'brand-image-xl',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => 'Trampo',
 
     /*
     |--------------------------------------------------------------------------
@@ -174,29 +174,31 @@ return [
 
     'menu' => [
         [
-            'text'        => 'Notificações',
-            'url'         => 'notifications',
-            'icon'        => 'far fa-fw fa-bell',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text' => 'Criar Publicação',
+            'url'  => 'publish',
+            'icon' => 'fas fa-fw fa-file-signature',
         ],
+        ['header' => 'Sobre Mim'],
         [
             'text' => 'Perfil',
             'url'  => 'profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Criar Publicação',
-            'url'  => 'publish',
-            'icon' => 'fas fa-fw fa-file-signature',
+            'text'        => 'Notificações',
+            'url'         => 'notifications',
+            'icon'        => 'far fa-fw fa-bell',
+            'label'       => 4,
+            'label_color' => 'success',
         ],
+        ['header' => 'Publicações'],
         [
-            'text' => 'Serviços',
+            'text' => 'Serviços Disponíveis',
             'url'  => 'services',
             'icon' => 'fas fa-fw fa-tools',
         ],
         [
-            'text' => 'Autônomos',
+            'text' => 'Autônomos Disponíveis',
             'url'  => 'freelancers',
             'icon' => 'fas fa-fw fa-people-carry',
         ]

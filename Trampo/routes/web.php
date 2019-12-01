@@ -28,4 +28,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/publish', 'PostController@storePublish');
     Route::get('/services', 'PostController@services');
     Route::get('/freelancers', 'PostController@freelancers');
+    Route::get('/profile/settings/general', 'UserController@generalSettings');
+    Route::get('/profile/settings/security', 'UserController@securitySettings');
 });

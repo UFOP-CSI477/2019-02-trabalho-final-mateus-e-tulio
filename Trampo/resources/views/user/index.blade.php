@@ -21,6 +21,14 @@
                             <p>{{$user->email}}</p>
                         </div>
                         <div class="col-md-6">
+                            <label>Celular</label>
+                            <p>{{$user->phone_number}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label>CEP</label>
+                            <p>{{$user->cep}}</p>
+                        </div>
+                        <div class="col-md-6">
                             <label>Nº de recomendações como<br> prestador</label>
                             <p>{{$countHireds}}</p>
                         </div>
@@ -28,12 +36,11 @@
                             <label>Nº de recomendações como<br> contratante</label>
                             <p>{{$countHirers}}</p>
                         </div>
-                        <div class="col-md-12 text-center">
-                            <label>Celular</label>
-                            <p>{{$user->phone_number}}</p>
+                        <div class="col-md-6 mt-3">
+                            <a class="btn btn-dark meu-botao">Alterar dados</a>
                         </div>
-                        <div class="col-md-12 mt-3">
-                            <button type="button" style="width:100%;" class="btn btn-dark">Editar Perfil</button>
+                        <div class="col-md-6 mt-3">
+                            <a class="btn btn-dark meu-botao">Alterar senha</a>
                         </div>
                     </div>
                 </div>
@@ -63,10 +70,10 @@
                 <div class="card-body">
                     <label>Serviços Anteriores</label>
                     <div class="col-md-12">
-                        <button type="button" style="width:100%;" class="btn btn-dark">Serviços Prestados</button>
+                        <a class="btn btn-dark meu-botao">Serviços Prestados</a>
                     </div>
                     <div class="col-md-12 mt-3">
-                        <button type="button"  style="width:100%;" class="btn btn-dark">Serviços Solicitados</button>
+                        <a class="btn btn-dark meu-botao">Serviços Solicitados</a>
                     </div>
                 </div>
             </div>

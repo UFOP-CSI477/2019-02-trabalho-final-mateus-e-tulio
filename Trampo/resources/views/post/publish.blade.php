@@ -3,7 +3,7 @@
 @section('title', ' - Criar Publicação')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Criar publicação</h1>
+    <h1 class="m-0 text-dark">Criar Publicação</h1>
 @stop
 
 @section('content')
@@ -12,6 +12,13 @@
             <div class="card">
                 <div class="card-body">
                     <form action="publish" method="post">
+                        <div class="form-group">
+                            <label for="categoria">Tipo</label>
+                            <select name="tipo" id="tipo" class="form-control" required>
+                                    <option value="Contratante">Contratante</option>
+                                    <option value="Prestador">Prestador</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="categoria">Categoria</label>
                             <select name="categoria" id="categoria" class="form-control" required>

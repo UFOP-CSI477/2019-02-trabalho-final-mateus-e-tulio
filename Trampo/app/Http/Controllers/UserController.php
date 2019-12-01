@@ -27,6 +27,14 @@ class UserController extends Controller
         return view('user.index',compact('user','countHireds','avgHireds','countHirers','avgHirers'));
     }
 
+    public function generalSettings(){
+
+    }
+
+    public function securitySettings(){
+        
+    }
+
     public function notifications()
     {
 
