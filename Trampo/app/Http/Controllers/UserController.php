@@ -7,13 +7,8 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    /**
-     * View own profile.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function index(User $user)
+
+    public function index()
     {
         $userObject = new User();
         $user = auth()->user();
@@ -32,16 +27,8 @@ class UserController extends Controller
         return view('user.index',compact('user','countHireds','avgHireds','countHirers','avgHirers'));
     }
 
-    /**
-     * Display notifications.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function notifications(User $user)
+    public function notifications()
     {
-        //
+
     }
-
-
 }
