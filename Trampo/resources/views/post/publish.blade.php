@@ -13,6 +13,13 @@
                 <div class="card-body">
                     <form action="publish" method="post">
                         <div class="form-group">
+                            <label for="categoria">Tipo</label>
+                            <select name="tipo" id="tipo" class="form-control" required>
+                                    <option value="Contratante">Contratante</option>
+                                    <option value="Prestador">Prestador</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="categoria">Categoria</label>
                             <select name="categoria" id="categoria" class="form-control" required>
                                 @foreach ($categorias as $categoria)
