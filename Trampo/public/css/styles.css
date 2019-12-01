@@ -2,6 +2,10 @@ body {
     font-family: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial, sans-serif' !important;
 }
 
+.sidebar {
+    font-size: 95% !important;
+}
+
 .meu-botao {
     color: white !important;
     cursor: pointer;

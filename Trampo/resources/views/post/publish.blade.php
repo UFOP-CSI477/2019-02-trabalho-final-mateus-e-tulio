@@ -3,7 +3,7 @@
 @section('title', ' - Criar Publicação')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Criar publicação</h1>
+    <h1 class="m-0 text-dark">Criar Publicação</h1>
 @stop
 
 @section('content')
