@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -46,20 +46,20 @@
                 </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
                     <label>Recomendações - Notas médias</label>
                     <div class="row progress-labels">
-                        <div class="col-6">Como prestador</div>
-                        <div class="col-6 text-right">{{$avgHireds}}%</div>
+                        <div class="col-md-6">Como prestador</div>
+                        <div class="col-md-6 text-right">{{$avgHireds}}%</div>
                     </div>
                     <div class="progress">
                         <div data-percentage="0%" style="width: {{$avgHireds}}%;" class="progress-bar progress-bar-blue" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <div class="row progress-labels mt-1">
-                        <div class="col-6">Como contratante</div>
-                        <div class="col-6 text-right">{{$avgHirers}}%</div>
+                        <div class="col-md-6">Como contratante</div>
+                        <div class="col-md-6 text-right">{{$avgHirers}}%</div>
                     </div>
                     <div class="progress">
                         <div data-percentage="0%" style="width: {{$avgHirers}}%;" class="progress-bar progress-bar-blue" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
