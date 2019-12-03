@@ -12,7 +12,7 @@ class PostController extends Controller
     public function publish()
     {
         $categorias = Category::orderBy('name')->get();
-       return view('post.publish',compact('categorias'));
+        return view('post.publish',compact('categorias'));
     }
 
     public function storePublish(Request $request)
@@ -23,7 +23,7 @@ class PostController extends Controller
 
     public function services(Post $post)
     {
-        //
+        return view('post.services',);
     }
     
 
