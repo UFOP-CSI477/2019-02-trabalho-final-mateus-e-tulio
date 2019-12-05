@@ -22,8 +22,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/publish', 'PostController@storePublish');
     Route::get('/services', 'PostController@services');
     Route::get('/freelancers', 'PostController@freelancers');
-    Route::get('/profile/settings/general', 'UserController@generalSettings');
-    Route::get('/profile/settings/security', 'UserController@securitySettings');
+    Route::post('/profile/settings/general', 'UserController@generalSettings');
+    Route::post('/profile/settings/security', 'UserController@securitySettings');
 });
 
 // Route::get('/home', function() {

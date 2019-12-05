@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
+use App\User;
+use Session;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -27,12 +29,29 @@ class UserController extends Controller
         return view('user.index',compact('user','countHireds','avgHireds','countHirers','avgHirers'));
     }
 
-    public function generalSettings(){
+    public function generalSettings(Request $request){
+        $user = User::findOrFail(auth()->user()->id);
+        $user->fill($request->all());
 
+        $user->save();
+
+        Session::flash('menssagem','Dados alterados com sucesso.');
+        Session::flash('classe-alerta', 'alert-success');
+
+        return redirect('profile');
     }
 
-    public function securitySettings(){
-        
+    public function securitySettings(Request $request){
+
+        $userObject = new User;
+
+        $senha_atual = $request->senha_atual;
+        $nova_senha = $request->nova_senha;
+        $confirmacao_nova_senha = $request->confirmacao_nova_senha;
+
+        $userObject->changePassword($senha_atual, $nova_senha, $confirmacao_nova_senha);
+
+        return redirect('profile');
     }
 
     public function notifications()
