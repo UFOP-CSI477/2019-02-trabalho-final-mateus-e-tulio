@@ -1,13 +1,13 @@
 body {
-    font-family: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial, sans-serif' !important;
+    font-family: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial, sans-serif';
 }
 
 .sidebar {
-    font-size: 95% !important;
+    font-size: 95%;
 }
 
 .meu-botao {
     color: white !important;
     cursor: pointer;
-    width: 100% !important;
+    width: 100%;
 }

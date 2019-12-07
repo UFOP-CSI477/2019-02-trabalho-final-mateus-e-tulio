@@ -12,14 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
-
-Auth::routes();
-
-Route::get('/home', function() {
-    return view('home');
-})->name('home')->middleware('auth');
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/notifications', 'UserController@notifications');
@@ -28,6 +22,12 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/publish', 'PostController@storePublish');
     Route::get('/services', 'PostController@services');
     Route::get('/freelancers', 'PostController@freelancers');
-    Route::get('/profile/settings/general', 'UserController@generalSettings');
-    Route::get('/profile/settings/security', 'UserController@securitySettings');
+    Route::post('/profile/settings/general', 'UserController@generalSettings');
+    Route::post('/profile/settings/security', 'UserController@securitySettings');
 });
+
+// Route::get('/home', function() {
+//     return view('home');
+// })->name('home')->middleware('auth');
+
+Auth::routes();

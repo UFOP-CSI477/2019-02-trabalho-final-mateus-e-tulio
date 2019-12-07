@@ -178,5 +178,8 @@ return [
         'year'                  => 'ano',
         'email'                 => 'e-mail',
         'remember'              => 'lembrar-me',
+        'cpf'                   => 'CPF',
+        'phone_number'          => 'número de telefone',
+        'cep'                   => 'CEP',
     ],
 ];
