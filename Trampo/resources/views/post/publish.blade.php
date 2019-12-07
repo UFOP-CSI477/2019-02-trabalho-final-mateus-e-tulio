@@ -27,6 +27,22 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div>
+                            <label for="cep">CEP</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="cep" id="meu_cep" value="{{auth()->user()->cep}}" checked>
+                                <label class="form-check-label" for="meu_cep">
+                                Meu CEP ({{auth()->user()->cep}})
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="cep" id="radio_outro_cep" value="">
+                                <label class="form-check-label" for="radio_outro_cep">
+                                Outro CEP
+                                </label>
+                                <input class="form-control" type="text" name="input_outro_cep" id="input_outro_cep" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="titulo">Título</label>
                             <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Insira o título aqui" required>
@@ -42,3 +58,13 @@
         </div>
     </div>
 @stop
+
+@push('js')
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script>
+    $(document).ready(function () { 
+        var $campoCep = $("#input_outro_cep");
+        $campoCep.mask("00.000-000");
+    });
+</script>
+@endpush

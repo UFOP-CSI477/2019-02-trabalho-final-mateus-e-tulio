@@ -193,12 +193,12 @@ return [
         ],
         ['header' => 'Publicações'],
         [
-            'text' => 'Serviços Disponíveis',
+            'text' => 'Contratantes Disponíveis',
             'url'  => 'services',
             'icon' => 'fas fa-fw fa-tools',
         ],
         [
-            'text' => 'Autônomos Disponíveis',
+            'text' => 'Prestadores Disponíveis',
             'url'  => 'freelancers',
             'icon' => 'fas fa-fw fa-people-carry',
         ]
