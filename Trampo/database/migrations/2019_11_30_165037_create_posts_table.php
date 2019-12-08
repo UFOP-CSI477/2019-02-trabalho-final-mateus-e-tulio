@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
 		    $table->enum('author_type', ['Contratante',  'Prestador']);
 		    $table->string('title', 45);
 		    $table->text('description');
-		    $table->string('cep', 10);
+            $table->string('cep', 10);
             $table->string('state');
             $table->string('city');
             $table->string('neighborhood');

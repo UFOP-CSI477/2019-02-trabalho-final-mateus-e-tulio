@@ -27,9 +27,14 @@ class PostController extends Controller
         $newPost->author_type = $request->tipo;
         $newPost->title = $request->titulo;
         $newPost->description = $request->descricao;
-        $newPost->cep = $request->cep;
+        if ($request->cep == 'meu') {
+            $cep = auth()->user()->cep;
+        } else {
+            $cep = $request->input_outro_cep;
+        }
+        $newPost->cep = $cep;
 
-        $local = json_decode(file_get_contents('https://viacep.com.br/ws/'.$request->cep.'/json/'), true);
+        $local = json_decode(file_get_contents('https://viacep.com.br/ws/'. preg_replace('/\D/', '', $cep) .'/json/'), true);
         $newPost->state = $local['uf'];
         $newPost->city = $local['localidade'];
         $newPost->neighborhood = $local['bairro'];
