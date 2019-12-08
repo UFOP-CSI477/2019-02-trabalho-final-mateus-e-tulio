@@ -20,10 +20,14 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/profile', 'UserController@index');
     Route::get('/publish', 'PostController@publish');
     Route::post('/publish', 'PostController@storePublish');
-    Route::get('/services', 'PostController@services');
+    Route::get('/services', 'PostController@services')->name('services');
     Route::get('/freelancers', 'PostController@freelancers');
     Route::post('/profile/settings/general', 'UserController@generalSettings');
     Route::post('/profile/settings/security', 'UserController@securitySettings');
+
+    Route::resource('posts', 'PostController');
+    Route::post('/posts/dynamic', 'PostController@dynamic')->name('posts.dynamic');
+
 });
 
 // Route::get('/home', function() {

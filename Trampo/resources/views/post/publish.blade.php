@@ -11,9 +11,10 @@
         <div class="col-10 offset-1">
             <div class="card">
                 <div class="card-body">
-                    <form action="publish" method="post">
+                    <form action="{{ route('posts.store') }}" method="post">
+                    @csrf
                         <div class="form-group">
-                            <label for="categoria">Tipo</label>
+                            <label for="tipo">Tipo</label>
                             <select name="tipo" id="tipo" class="form-control" required>
                                     <option value="Contratante">Contratante</option>
                                     <option value="Prestador">Prestador</option>
@@ -34,6 +35,10 @@
                         <div class="form-group">
                             <label for="descricao">Descrição</label>
                             <textarea class="form-control" name="descricao" cols="30" rows="10" placeholder="Insira a descrição aqui" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="cep">CEP do local (onde o publicação se refere)</label>
+                            <input type="number" class="form-control" name="cep" placeholder="0000000" required>
                         </div>
                         <button class="btn btn-dark">Criar Publicação</button>
                     </form>
