@@ -28,8 +28,9 @@
                     @if (isset($item['submenu']))
                         <i class="fas fa-angle-left right"></i>
                     @endif
-                    @if (isset($item['label']))
-                        <span class="badge badge-{{ $item['label_color'] ?? 'primary' }} right">{{ $item['label'] }}</span>
+                    @php ($newNotifications = App\Answer::where('users_id', auth()->user()->id)->where('viewed', 'Não')->count())
+                    @if (isset($item['label']) && $newNotifications > 0)
+                        <span class="badge badge-{{ $item['label_color'] ?? 'primary' }} right">{{ App\Answer::where('users_id', auth()->user()->id)->where('viewed', 'Não')->count() }}</span>
                     @endif
                 </p>
             </a>

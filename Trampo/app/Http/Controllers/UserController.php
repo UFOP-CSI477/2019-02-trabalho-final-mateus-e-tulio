@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Post;
+use App\Answer;
 use Session;
 use Illuminate\Support\Facades\Hash;
 
@@ -56,6 +58,9 @@ class UserController extends Controller
 
     public function notifications()
     {
-
+        $answers = Post::join('answers', 'posts.id', 'posts_id')
+            ->where('users_id', auth()->user()->id)
+            ->orderBy('answers.viewed', 'asc')->orderBy('answers.created_at', 'desc')->get();
+        return view('user.notifications', ['answers' => $answers]);
     }
 }
