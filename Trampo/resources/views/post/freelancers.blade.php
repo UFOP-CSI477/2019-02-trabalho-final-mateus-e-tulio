@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', ' - Encontrar Trabalho')
+@section('title', ' - Encontrar Autônomos')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Encontrar Trabalho</h1>
+    <h1 class="m-0 text-dark">Encontrar Autônomos</h1>
 @stop
 
 @section('content')
@@ -23,7 +23,7 @@
 
                             <div id="filters" class="collapse show" aria-labelledby="headingOne" data-parent="#filtersAccordion">
                               <div class="card-body">
-                                <form action="{{ route('services') }}" action="get">
+                                <form action="{{ route('freelancers') }}" action="get">
                                     @csrf
                                     @method('get')
                                     <div class="row">
@@ -92,7 +92,7 @@
                                                         @endif
                                                     </p>
                                                 </td>
-                                                <td><a class="btn btn-dark meu-outro-botao" href="{{ route('posts.show', ['hire' => 'hirer', 'id' => $post->id]) }}">Ver mais</a></td>
+                                                <td><a class="btn btn-dark meu-outro-botao" href="{{ route('posts.show', ['hire' => 'hired', 'id' => $post->id]) }}">Ver mais</a></td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -120,7 +120,7 @@
                         $.ajax({
                             url:"{{ route('posts.dynamic') }}",
                             method:"POST",
-                            data:{select:select, value:value, _token:_token, dependent:dependent, hire:'hired_id'},
+                            data:{select:select, value:value, _token:_token, dependent:dependent, hire:'hirer_id'},
                             success:function(result)
                             {
                                 $('#'+dependent).html(result);
@@ -131,7 +131,7 @@
                 $.ajax({
                     url:"{{ route('posts.dcat') }}",
                     method:"POST",
-                    data:{select:select, value:value, _token:_token, hire:'hired_id'},
+                    data:{select:select, value:value, _token:_token, hire:'hirer_id'},
                     success:function(result)
                     {
                         $('#categoria').html(result);

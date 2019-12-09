@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Category;
+use App\Answer;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -44,19 +45,35 @@ class PostController extends Controller
         return redirect('publish');
 
     }
+
+    public function show($hire, $id)
+    {
+        $post = Post::select('author_type','title','description','state','city','neighborhood','status','users.name AS username','categories.name AS category', 'users.id AS userid')
+            ->join('categories', 'categories.id', '=', 'categories_id')
+            ->join('users', 'users.id', '=', $hire.'_id')
+            ->where('posts.id', $id)->first();
+        $answers = Answer::join('users', 'users.id', '=', 'users_id')->where('posts_id', $id)->orderBy('answers.created_at', 'desc')->get();
+        return view('post.index', ['post' => $post, 'answers' => $answers]);
+    }
     
     public function services(Request $request)
     {
-        $categorias = Post::join('categories', 'categories.id', '=', 'categories_id')->orderBy('name')->get();
-        $posts = Post::join('categories', 'categories.id', '=', 'categories_id')
+        $categorias = Post::select('categories.id AS id', 'name')->join('categories', 'categories.id', '=', 'categories_id')
+            ->whereNull('hired_id')
+            ->orderBy('name')
+            ->groupBy('categories.id')->get();
+        $posts = Post::select('description', 'title', 'posts.id AS id')
+            ->join('categories', 'categories.id', '=', 'categories_id')
+            ->whereNull('hired_id')
             ->where('state', 'like', '%' . $request->estado . '%')
             ->where('city', 'like', '%' . $request->cidade . '%')
             ->where('neighborhood', 'like', '%' . $request->bairro . '%')
             ->where('categories_id', 'like', '%' . $request->categoria . '%')
-            ->orderBy('posts.created_at', 'asc');
-        $state_list = Post::select('state')->groupBy('state')->get();
+            ->orderBy('posts.created_at', 'desc');
+        $state_list = Post::select('state')
+            ->whereNull('hired_id')->groupBy('state')->get();
 
-        return view('post.services', ['request' => $request, 'categorias' => $categorias, 'states' => $state_list, 'posts' => $posts->get()]);
+        return view('post.services', ['request' => $request, 'categorias' => $categorias, 'states' => $state_list, 'posts' => $posts->paginate('10')]);
     }
 
     function dynamic(Request $request)
@@ -66,6 +83,7 @@ class PostController extends Controller
         $dependent = $request->get('dependent');
         if ($select == 'estado') {
             $data = Post::select('city')
+                ->whereNull($request->get('hire'))
                 ->where('state', $value)
                 ->groupBy('city')
                 ->get();
@@ -77,6 +95,7 @@ class PostController extends Controller
         }
         if ($select == 'cidade') {
             $data = Post::select('neighborhood')
+                ->whereNull($request->get('hire'))
                 ->where('city', $value)
                 ->groupBy('neighborhood')
                 ->get();
@@ -88,9 +107,46 @@ class PostController extends Controller
         }
         echo $output;
     }
-
-    public function freelancers(Post $post)
+    
+    function dynamicCategories(Request $request)
     {
+        $select = $request->get('select');
+        $value = $request->get('value');
+        if ($value == '') {
+            $data = Post::select('categories.id AS id', 'name')->join('categories', 'categories.id', '=', 'categories_id')
+                ->whereNull($request->get('hire'))
+                ->orderBy('name')
+                ->groupBy('categories.id')->get();
+        } else {
+            $data = Post::select('categories.id AS id', 'name')->join('categories', 'categories.id', '=', 'categories_id')
+                ->whereNull($request->get('hire'))
+                ->where($select=='estado'?'state':($select=='cidade'?'city':'neighborhood'), $value)
+                ->orderBy('name')
+                ->groupBy('categories.id')->get();
+        }
+        $output = '<option value="">Selecionar Categoria</option>';
+        foreach($data as $row)
+        {
+            $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
+        }
+        echo $output;
+    }
 
+    public function freelancers(Post $post, Request $request)
+    {
+        $categorias = Post::join('categories', 'categories.id', '=', 'categories_id')
+            ->whereNull('hirer_id')->orderBy('name')->get();
+        $posts = Post::select('description', 'title', 'posts.id AS id')
+            ->join('categories', 'categories.id', '=', 'categories_id')
+            ->whereNull('hirer_id')
+            ->where('state', 'like', '%' . $request->estado . '%')
+            ->where('city', 'like', '%' . $request->cidade . '%')
+            ->where('neighborhood', 'like', '%' . $request->bairro . '%')
+            ->where('categories_id', 'like', '%' . $request->categoria . '%')
+            ->orderBy('posts.created_at', 'asc');
+        $state_list = Post::select('state')
+            ->whereNull('hirer_id')->groupBy('state')->get();
+
+        return view('post.freelancers', ['request' => $request, 'categorias' => $categorias, 'states' => $state_list, 'posts' =>  $posts->paginate('10')]);
     }
 }

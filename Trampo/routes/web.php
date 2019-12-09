@@ -21,12 +21,14 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/publish', 'PostController@publish');
     Route::post('/publish', 'PostController@storePublish');
     Route::get('/services', 'PostController@services')->name('services');
-    Route::get('/freelancers', 'PostController@freelancers');
+    Route::get('/freelancers', 'PostController@freelancers')->name('freelancers');
     Route::post('/profile/settings/general', 'UserController@generalSettings');
     Route::post('/profile/settings/security', 'UserController@securitySettings');
 
     Route::resource('posts', 'PostController');
+    Route::get('/posts/{hire}/{id}', 'PostController@show')->name('posts.show');
     Route::post('/posts/dynamic', 'PostController@dynamic')->name('posts.dynamic');
+    Route::post('/posts/dcat', 'PostController@dynamicCategories')->name('posts.dcat');
 
 });
 
