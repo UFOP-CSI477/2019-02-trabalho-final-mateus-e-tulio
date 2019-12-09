@@ -16,7 +16,6 @@ class CreateAnswersTable extends Migration
         Schema::create('answers', function (Blueprint $table) {
 		    $table->bigInteger('posts_id')->unsigned();
 		    $table->bigInteger('users_id')->unsigned();
-		    $table->enum('viewable_address', ['Sim',  'Não'])->default('Não');
 		    $table->enum('viewed', ['Sim',  'Não'])->default('Não');
 		    $table->text('comment')->nullable();
 		    

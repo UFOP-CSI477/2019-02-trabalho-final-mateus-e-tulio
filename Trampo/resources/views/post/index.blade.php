@@ -8,27 +8,27 @@
 
 @section('content')
     <div class="row">
-        <div class="col-10 offset-1">
+        <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-md-3">
                             <h4>Autor</h4>
                             <p>{{ $post->username }}</p>
                         </div>
-                        <div class="col-3">
+                        <div class="col-md-3">
                             <h4>Tipo</h4>
                             <p>{{ $post->author_type }} de serviços</p>
                         </div>
-                        <div class="col-3">
+                        <div class="col-md-3">
                             <h4>Local</h4>
                             <p>{{ $post->neighborhood . ' - ' . $post->city . ' - ' . $post->state }}</p>
                         </div>
-                        <div class="col-3">
+                        <div class="col-md-3">
                             <h4>Status</h4>
                             <p>{{ $post->status }}</p>
                         </div>
-                        <div class="col-12 mt-2">
+                        <div class="col-md-12 mt-2">
                             <h2>{{ $post->title }}</h2>
                             <p>{{ $post->description }}</p>
                         </div>
@@ -40,11 +40,11 @@
 
     @if ($post->userid == auth()->user()->id)
         <div class="row">
-            <div class="col-10 offset-1">
+            <div class="col-md-10 offset-1">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-md-12">
                                 <div class="table-responsive">
                                     <table class="table align-items-center table-flush">
                                         <thead class="thead-light">
@@ -70,6 +70,27 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @else
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <div class="card">
+                    <div class="card-body">
+                        @if ($hasInterest)
+                            <form action="#">
+                                <button type="submit" class="btn btn-dark">Retirar Interesse</button>
+                            </form>
+                        @else
+                            <form action="#">
+                                <div class="form-group">
+                                    <input type="text" name="comment" id="comment" class="form-control" placeholder="Insira uma mensagem (Opcional)">
+                                </div>
+                                <button type="submit" class="btn btn-dark">Manifestar Interesse</button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>

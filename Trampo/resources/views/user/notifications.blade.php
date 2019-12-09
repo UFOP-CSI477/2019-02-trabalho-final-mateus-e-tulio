@@ -8,11 +8,11 @@
 
 @section('content')
     <div class="row">
-        <div class="col-10 offset-1">
+        <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-md-12">
                             <div class="table-responsive">
                                 <table class="table align-items-center table-flush">
                                     <thead class="thead-light">

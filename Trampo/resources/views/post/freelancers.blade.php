@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-10 offset-1">
+        <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-body">
                     <div class="accordion" id="filtersAccordion">
@@ -27,7 +27,7 @@
                                     @csrf
                                     @method('get')
                                     <div class="row">
-                                        <div class="col-4 form-group">
+                                        <div class="col-md-4 form-group">
                                             <label for="estado">Estado</label>
                                             <select name="estado" id="estado" class="form-control dynamic" data-dependent="cidade">
                                                 <option value="">Selecionar Estado</option>
@@ -36,19 +36,19 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-4 form-group">
+                                        <div class="col-md-4 form-group">
                                             <label for="cidade">Cidade</label>
                                             <select name="cidade" id="cidade" class="form-control dynamic" data-dependent="bairro">
                                                 <option value="">Selecionar Cidade</option>
                                             </select>
                                         </div>
-                                        <div class="col-4 form-group">
+                                        <div class="col-md-4 form-group">
                                             <label for="bairro">Bairro</label>
                                             <select name="bairro" id="bairro" class="form-control dynamic">
                                                 <option value="">Selecionar Bairro</option>
                                             </select>
                                         </div>
-                                        <div class="col-8 form-group">
+                                        <div class="col-md-8 form-group">
                                             <label for="categoria">Categoria</label>
                                             <select name="categoria" id="categoria" class="form-control">
                                                 <option value="">Selecionar Categoria</option>
@@ -57,7 +57,7 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-4 form-group">
+                                        <div class="col-md-4 form-group">
                                             <label for="send">  </label><br>
                                             <button class="btn btn-dark meu-botao" id="send">Filtrar Resultados</button>
                                         </div>
@@ -70,7 +70,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-md-12">
                             <div class="table-responsive">
                                 <table class="table align-items-center table-flush">
                                     <thead class="thead-light">

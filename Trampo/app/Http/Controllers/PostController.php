@@ -6,6 +6,7 @@ use App\Post;
 use App\Category;
 use App\Answer;
 use Illuminate\Http\Request;
+use Session;
 
 class PostController extends Controller
 {
@@ -42,6 +43,9 @@ class PostController extends Controller
 
         $newPost->save();
 
+        Session::flash('message', 'Publicação criada com sucesso!'); 
+        Session::flash('alert-class', 'alert-success'); 
+
         return redirect('publish');
 
     }
@@ -53,7 +57,8 @@ class PostController extends Controller
             ->join('users', 'users.id', '=', $hire.'_id')
             ->where('posts.id', $id)->first();
         $answers = Answer::join('users', 'users.id', '=', 'users_id')->where('posts_id', $id)->orderBy('answers.created_at', 'desc')->get();
-        return view('post.index', ['post' => $post, 'answers' => $answers]);
+        $hasInterest = Answer::where('posts_id',$id)->where('users_id',auth()->user()->id)->exists();
+        return view('post.index', ['post' => $post, 'answers' => $answers, 'hasInterest' => $hasInterest]);
     }
     
     public function services(Request $request)
