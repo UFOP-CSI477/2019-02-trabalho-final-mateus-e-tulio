@@ -27,6 +27,10 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::resource('posts', 'PostController');
     Route::get('/posts/{hire}/{id}', 'PostController@show')->name('posts.show');
+    Route::get('/profile/{id}','UserController@otherProfile')->name('users.other_profile');
+    Route::get('/sendMessageTo/{title}/{id}','UserController@sendMessageTo')->name('users.send_message_to');
+    Route::get('/posts/interest/remove/{post_id}', 'PostController@removeInterest')->name('posts.remove_interest');
+    Route::post('/posts/interest/express','PostController@expressInterest')->name('posts.express_interest');
     Route::post('/posts/dynamic', 'PostController@dynamic')->name('posts.dynamic');
     Route::post('/posts/dcat', 'PostController@dynamicCategories')->name('posts.dcat');
 

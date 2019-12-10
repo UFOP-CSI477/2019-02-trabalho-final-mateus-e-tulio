@@ -8,6 +8,7 @@ use App\Post;
 use App\Answer;
 use Session;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -27,8 +28,25 @@ class UserController extends Controller
         $auxHirers = $hirersFeedbacks->avg('hirers_score');
         $avgHirers = $auxHirers == '' ? 0 : intval($auxHirers*10);
 
-        $userObject->viewHiredsFeedbacks($user->id)->count();
         return view('user.index',compact('user','countHireds','avgHireds','countHirers','avgHirers'));
+    }
+
+    public function otherProfile($id)
+    {
+        $userObject = new User();
+        $user = User::where('users.id',$id)->first();
+        
+        $hiredsFeedbacks = $userObject->viewHiredsFeedbacks($id);
+        $countHireds = $hiredsFeedbacks->count();
+        $auxHireds = $hiredsFeedbacks->avg('hireds_score');
+        $avgHireds = $auxHireds == '' ? 0 : intval($auxHireds*10);
+
+        $hirersFeedbacks = $userObject->viewHirersFeedbacks($id);
+        $countHirers = $hirersFeedbacks->count();
+        $auxHirers = $hirersFeedbacks->avg('hirers_score');
+        $avgHirers = $auxHirers == '' ? 0 : intval($auxHirers*10);
+
+        return view('user.other_profile',compact('user','countHireds','avgHireds','countHirers','avgHirers'));
     }
 
     public function generalSettings(Request $request){
@@ -62,5 +80,11 @@ class UserController extends Controller
             ->where('users_id', auth()->user()->id)
             ->orderBy('answers.viewed', 'asc')->orderBy('answers.created_at', 'desc')->get();
         return view('user.notifications', ['answers' => $answers]);
+    }
+
+    public function sendMessageTo($title, $id){
+        $phone_number = User::where('id',$id)->pluck('phone_number')->first();
+        $phone_number_wpp = preg_replace('/[^0-9]/', '', $phone_number);
+        return Redirect::to("https://api.whatsapp.com/send?phone=55$phone_number_wpp&text=Olá!%20Vi%20que%20você%20respondeu%20à%20minha%20publicação%20\"$title\"");
     }
 }

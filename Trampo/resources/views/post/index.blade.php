@@ -33,6 +33,7 @@
                             <p>{{ $post->description }}</p>
                         </div>
                     </div>
+                    <a class="btn btn-dark" href="{{route('users.other_profile',['id'=>$post->userid])}}">Ver Perfil</a>
                 </div>
             </div>
         </div>
@@ -51,6 +52,8 @@
                                             <tr>
                                                 <th>Respostas à publicação</th>
                                                 <th></th>
+                                                <th></th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -62,7 +65,9 @@
                                                             {{ $answer->comment }}
                                                         </p>
                                                     </td>
-                                                    <td><a class="btn btn-dark meu-outro-botao" href="{{ route('posts.show', ['hire' => 'hirer', 'id' => $post->id]) }}">Ver mais</a></td>
+                                                    <td><a class="btn btn-dark meu-outro-botao" href="{{route('users.other_profile',['id'=>$answer->users_id])}}">Ver Perfil</a></td>
+                                                    <td><a class="btn btn-dark meu-outro-botao" href="{{route('users.send_message_to',['id'=>$answer->users_id,'title'=>$post->title])}}">Entrar em contato</a></td>
+                                                    <td><a class="btn btn-dark meu-outro-botao" href="#">Avaliar serviço</a></td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -80,14 +85,14 @@
                 <div class="card">
                     <div class="card-body">
                         @if ($hasInterest)
-                            <form action="#">
-                                <button type="submit" class="btn btn-dark">Retirar Interesse</button>
-                            </form>
+                            <a href="{{route('posts.remove_interest',['post_id'=>$post->id])}}" class="btn btn-dark">Retirar Interesse</a>
                         @else
-                            <form action="#">
+                            <form action="{{route('posts.express_interest')}}" method="post">
+                                @csrf
                                 <div class="form-group">
                                     <input type="text" name="comment" id="comment" class="form-control" placeholder="Insira uma mensagem (Opcional)">
                                 </div>
+                                <input type="hidden" name="posts_id" value="{{$post->id}}">
                                 <button type="submit" class="btn btn-dark">Manifestar Interesse</button>
                             </form>
                         @endif

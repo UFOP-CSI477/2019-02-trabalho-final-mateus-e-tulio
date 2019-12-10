@@ -52,12 +52,15 @@ class PostController extends Controller
 
     public function show($hire, $id)
     {
-        $post = Post::select('author_type','title','description','state','city','neighborhood','status','users.name AS username','categories.name AS category', 'users.id AS userid')
+        $post = Post::select('posts.id AS id', 'author_type','title','description','state','city','neighborhood','status','users.name AS username','categories.name AS category', 'users.id AS userid')
             ->join('categories', 'categories.id', '=', 'categories_id')
             ->join('users', 'users.id', '=', $hire.'_id')
             ->where('posts.id', $id)->first();
+
         $answers = Answer::join('users', 'users.id', '=', 'users_id')->where('posts_id', $id)->orderBy('answers.created_at', 'desc')->get();
+        
         $hasInterest = Answer::where('posts_id',$id)->where('users_id',auth()->user()->id)->exists();
+        
         return view('post.index', ['post' => $post, 'answers' => $answers, 'hasInterest' => $hasInterest]);
     }
     
@@ -153,5 +156,19 @@ class PostController extends Controller
             ->whereNull('hirer_id')->groupBy('state')->get();
 
         return view('post.freelancers', ['request' => $request, 'categorias' => $categorias, 'states' => $state_list, 'posts' =>  $posts->paginate('10')]);
+    }
+
+    public function removeInterest($post_id){
+        Answer::where('users_id',auth()->user()->id)->where('posts_id',$post_id)->delete();
+        return back();
+    }
+
+    public function expressInterest(Request $request){
+        $answer = new Answer;
+        
+        $answer->fill($request->all());
+        $answer->users_id = auth()->user()->id;
+        $answer->save();
+        return back();
     }
 }
