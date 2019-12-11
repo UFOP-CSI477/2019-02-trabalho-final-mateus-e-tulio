@@ -25,7 +25,8 @@ class CreateAnswersTable extends Migration
 		    $table->index('posts_id','fk_posts_has_users_posts1_idx');
 		
 		    $table->foreign('posts_id')
-		        ->references('id')->on('posts');
+		        ->references('id')->on('posts')
+                ->onDelete('cascade');
 		
 		    $table->foreign('users_id')
 		        ->references('id')->on('users');

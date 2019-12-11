@@ -49,6 +49,17 @@ class PostController extends Controller
         return redirect('publish');
 
     }
+    
+    public function destroy($id)
+    {
+        $myPost = Post::findOrFail($id);
+        $myPost->delete();
+
+        Session::flash('message', 'Publicação excluída com sucesso!'); 
+        Session::flash('alert-class', 'alert-success'); 
+
+        return redirect('publish');
+    }
 
     public function show($hire, $id)
     {
@@ -151,7 +162,7 @@ class PostController extends Controller
             ->where('city', 'like', '%' . $request->cidade . '%')
             ->where('neighborhood', 'like', '%' . $request->bairro . '%')
             ->where('categories_id', 'like', '%' . $request->categoria . '%')
-            ->orderBy('posts.created_at', 'asc');
+            ->orderBy('posts.created_at', 'desc');
         $state_list = Post::select('state')
             ->whereNull('hirer_id')->groupBy('state')->get();
 

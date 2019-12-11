@@ -28,9 +28,19 @@
                     @if (isset($item['submenu']))
                         <i class="fas fa-angle-left right"></i>
                     @endif
-                    @php ($newNotifications = App\Answer::where('users_id', auth()->user()->id)->where('viewed', 'Não')->count())
-                    @if (isset($item['label']) && $newNotifications > 0)
-                        <span class="badge badge-{{ $item['label_color'] ?? 'primary' }} right">{{ App\Answer::where('users_id', auth()->user()->id)->where('viewed', 'Não')->count() }}</span>
+                    @php ($newNotifications = App\Post::join('answers', 'posts.id', 'posts_id')
+                                                    ->where('viewed', 'Não')
+                                                    ->where(function($q) {
+                                                        $q->where(function ($query) {
+                                                            $query->where('hired_id', auth()->user()->id)
+                                                                ->where('author_type', 'Prestador');
+                                                        })->orWhere(function ($query) {
+                                                            $query->where('hirer_id', auth()->user()->id)
+                                                                ->where('author_type', 'Contratante');
+                                                        });
+                                                    }))
+                    @if (isset($item['label']) && $newNotifications->count() > 0)
+                        <span class="badge badge-{{ $item['label_color'] ?? 'primary' }} right">{{ $newNotifications-get() }}</span>
                     @endif
                 </p>
             </a>

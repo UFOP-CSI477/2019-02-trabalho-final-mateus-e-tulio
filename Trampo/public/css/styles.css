@@ -14,4 +14,10 @@ body {
 
 .meu-outro-botao {
     float: right;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em
+}
+
+td, th {
+    max-width: 500px;
 }

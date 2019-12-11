@@ -77,9 +77,18 @@ class UserController extends Controller
     public function notifications()
     {
         $answers = Post::join('answers', 'posts.id', 'posts_id')
-            ->where('users_id', auth()->user()->id)
-            ->orderBy('answers.viewed', 'asc')->orderBy('answers.created_at', 'desc')->get();
-        return view('user.notifications', ['answers' => $answers]);
+            ->where(function ($query) {
+                $query->where('posts.hired_id', auth()->user()->id)
+                    ->where('posts.author_type', 'Prestador');
+            })->orWhere(function ($query) {
+                $query->where('posts.hirer_id', auth()->user()->id)
+                    ->where('posts.author_type', 'Contratante');
+            })
+            ->orderBy('answers.viewed', 'asc')->orderBy('answers.created_at', 'desc');
+        
+        $answers->update(array('viewed' => 'Sim'));
+
+        return view('user.notifications', ['answers' => $answers->get()]);
     }
 
     public function sendMessageTo($title, $id){

@@ -33,7 +33,11 @@
                             <p>{{ $post->description }}</p>
                         </div>
                     </div>
-                    <a class="btn btn-dark" href="{{route('users.other_profile',['id'=>$post->userid])}}">Ver Perfil</a>
+                    @if ($post->userid == auth()->user()->id)
+                        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalExcluir">Excluir Publicação</button>
+                    @else
+                        <a class="btn btn-dark" href="{{route('users.other_profile',['id'=>$post->userid])}}">Ver Perfil</a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -51,8 +55,7 @@
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>Respostas à publicação</th>
-                                                <th></th>
-                                                <th></th>
+                                                <th>E-mail</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -60,14 +63,17 @@
                                             @foreach ($answers as $answer)
                                                 <tr>
                                                     <td>
-                                                        <h3>{{ $answer->name }}</h3>
+                                                        <p>{{ $answer->comment }}</p>
                                                         <p class="text-muted">
-                                                            {{ $answer->comment }}
+                                                            {{ $answer->name }}
                                                         </p>
                                                     </td>
-                                                    <td><a class="btn btn-dark meu-outro-botao" href="{{route('users.other_profile',['id'=>$answer->users_id])}}">Ver Perfil</a></td>
-                                                    <td><a class="btn btn-dark meu-outro-botao" href="{{route('users.send_message_to',['id'=>$answer->users_id,'title'=>$post->title])}}">Entrar em contato</a></td>
-                                                    <td><a class="btn btn-dark meu-outro-botao" href="#">Avaliar serviço</a></td>
+                                                    <td>{{ $answer->email }}</td>
+                                                    <td>
+                                                        <a class="btn btn-dark meu-outro-botao" href="{{route('users.other_profile',['id'=>$answer->users_id])}}">Ver Perfil</a>
+                                                        <a class="btn btn-dark meu-outro-botao" href="{{route('users.send_message_to',['id'=>$answer->users_id,'title'=>$post->title])}}">Entrar em contato</a>
+                                                        <a class="btn btn-dark meu-outro-botao" href="#">Avaliar serviço</a>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -76,6 +82,31 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Excluir Post -->
+        <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="modalExcluir" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalExcluir">Excluir Publicação</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+                    <div class="modal-body">
+                        @csrf
+                        @method('delete')
+                        <p>Você tem certeza que deseja excluir essa publicação?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                        <button type="submit" class="btn btn-primary">Sim</button>
+                    </div>
+                </form>
                 </div>
             </div>
         </div>

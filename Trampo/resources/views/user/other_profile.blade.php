@@ -15,21 +15,9 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <label>Nome</label>
                             <p>{{$user->name}}</p>
-                        </div>
-                        <div class="col-md-6">
-                            <label>E-mail</label>
-                            <p>{{$user->email}}</p>
-                        </div>
-                        <div class="col-md-6">
-                            <label>Celular</label>
-                            <p>{{$user->phone_number}}</p>
-                        </div>
-                        <div class="col-md-6">
-                            <label>CEP</label>
-                            <p>{{$user->cep}}</p>
                         </div>
                         <div class="col-md-6">
                             <label>Nº de recomendações como prestador</label>

@@ -30,7 +30,7 @@
                                                         {{ $answer->comment }}
                                                     </p>
                                                 </td>
-                                                <td><a class="btn btn-dark meu-outro-botao" href="{{ route('posts.show', ['hire' => 'hirer', 'id' => $post->id]) }}">Ver mais</a></td>
+                                                <td><a class="btn btn-dark meu-outro-botao" href="{{ route('posts.show', ['hire' => $answer->author_type == 'Prestador' ? 'hired' : 'hirer', 'id' => $answer->posts_id]) }}">Ver mais</a></td>
                                             </tr>
                                         @endforeach
                                     </tbody>
