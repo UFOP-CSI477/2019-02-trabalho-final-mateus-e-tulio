@@ -26,7 +26,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/profile/settings/security', 'UserController@securitySettings');
 
     Route::resource('posts', 'PostController');
+    Route::resource('feedbacks', 'FeedbackController');
+    Route::get('/feedbacks/store/{i_hired}/{id}/{user}', 'FeedbackController@store')->name('feedbacks.store');
     Route::get('/posts/{hire}/{id}', 'PostController@show')->name('posts.show');
+    Route::get('/posts/rate/{hire}/{id}/{user}', 'PostController@rate')->name('posts.rate');
     Route::get('/profile/{id}','UserController@otherProfile')->name('users.other_profile');
     Route::get('/sendMessageTo/{title}/{id}','UserController@sendMessageTo')->name('users.send_message_to');
     Route::get('/posts/interest/remove/{post_id}', 'PostController@removeInterest')->name('posts.remove_interest');

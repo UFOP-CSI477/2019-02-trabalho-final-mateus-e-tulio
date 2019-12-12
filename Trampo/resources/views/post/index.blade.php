@@ -72,7 +72,7 @@
                                                     <td>
                                                         <a class="btn btn-dark meu-outro-botao" href="{{route('users.other_profile',['id'=>$answer->users_id])}}">Ver Perfil</a>
                                                         <a class="btn btn-dark meu-outro-botao" href="{{route('users.send_message_to',['id'=>$answer->users_id,'title'=>$post->title])}}">Entrar em contato</a>
-                                                        <a class="btn btn-dark meu-outro-botao" href="#">Avaliar serviço</a>
+                                                        <a class="btn btn-dark meu-outro-botao" href="{{route('posts.rate', ['hire'=>$hire, 'id'=>$post->id, 'user'=>$answer->users_id])}}">Avaliar serviço</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

@@ -72,7 +72,23 @@ class PostController extends Controller
         
         $hasInterest = Answer::where('posts_id',$id)->where('users_id',auth()->user()->id)->exists();
         
-        return view('post.index', ['post' => $post, 'answers' => $answers, 'hasInterest' => $hasInterest]);
+        return view('post.index', ['hire' => $hire, 'post' => $post, 'answers' => $answers, 'hasInterest' => $hasInterest]);
+    }
+
+    public function rate($hire, $id, $user)
+    {
+        $post = Post::select('posts.id AS id', 'author_type','title','description','state','city','neighborhood','status','users.name AS username','categories.name AS category', 'users.id AS userid')
+            ->join('categories', 'categories.id', '=', 'categories_id')
+            ->join('users', 'users.id', '=', $hire.'_id')
+            ->where('posts.id', $id)->first();
+
+        $answer = Answer::join('users', 'users.id', '=', 'users_id')
+            ->where('posts_id', $id)
+            ->where('users_id', $user)->first();
+            
+        $i_hired = ((auth()->user()->id == $answer->users_id) && ($hire == 'hired')) || ((auth()->user()->id == $post->userid) && ($hire == 'hirer'));
+        
+        return view('post.rate', ['i_hired' => $i_hired, 'hire' => $hire, 'post' => $post, 'answer' => $answer]);
     }
     
     public function services(Request $request)

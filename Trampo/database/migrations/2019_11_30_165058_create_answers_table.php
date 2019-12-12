@@ -18,6 +18,7 @@ class CreateAnswersTable extends Migration
 		    $table->bigInteger('users_id')->unsigned();
 		    $table->enum('viewed', ['Sim',  'Não'])->default('Não');
 		    $table->text('comment')->nullable();
+		    $table->enum('solved', ['Sim',  'Não'])->default('Não');
 		    
 		    $table->primary('posts_id', 'users_id');
 		

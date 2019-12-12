@@ -38,9 +38,9 @@
                                                             $query->where('hirer_id', auth()->user()->id)
                                                                 ->where('author_type', 'Contratante');
                                                         });
-                                                    }))
-                    @if (isset($item['label']) && $newNotifications->count() > 0)
-                        <span class="badge badge-{{ $item['label_color'] ?? 'primary' }} right">{{ $newNotifications-get() }}</span>
+                                                    })->count())
+                    @if (isset($item['label']) && $newNotifications > 0)
+                        <span class="badge badge-{{ $item['label_color'] ?? 'primary' }} right">{{ $newNotifications }}</span>
                     @endif
                 </p>
             </a>
