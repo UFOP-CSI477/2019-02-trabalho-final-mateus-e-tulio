@@ -62,7 +62,7 @@ class FeedbackController extends Controller
         $post->status = 'Concluído';
 
         
-        if ($i_hired) {
+        if ($i_hired == '1') {
             $feedback->hireds_score = $request->grade;
             $feedback->message_for_hired = $request->message;
             $post->hired_id = $user;
@@ -78,12 +78,12 @@ class FeedbackController extends Controller
         Session::flash('message', 'Avaliação feita com sucesso!'); 
         Session::flash('alert-class', 'alert-success'); 
 
-        return redirect('publish');
+        return redirect('profile');
     }
 
     public function show($id)
     {
-        $feedback = Feedback::select('posts.id AS id', 'hirer.name AS hirer', 'hired.name AS hired', 'posts.title AS title')
+        $feedback = Feedback::select('posts.id AS id', 'posts.hirer_id AS hirer_id', 'hirer.name AS hirer', 'hired.name AS hired', 'posts.title AS title')
             ->join('posts', 'feedback.posts_id', 'posts.id')
             ->join('users AS hirer', 'posts.hirer_id', 'hirer.id')
             ->join('users AS hired', 'posts.hired_id', 'hired.id')
@@ -93,7 +93,10 @@ class FeedbackController extends Controller
                 ->orWhere('posts.hired_id', auth()->user()->id);
             })->first();
 
-        return view('feedbacks.show', ['feedback' => $feedback, 'i_hired' => $feedback->hirer_id == auth()->user()->id]);
+            
+        $i_hired = $feedback->hirer_id == auth()->user()->id;
+
+        return view('feedbacks.show', ['feedback' => $feedback, 'i_hired' => $i_hired]);
     }
 
     /**
@@ -123,7 +126,7 @@ class FeedbackController extends Controller
         Session::flash('message', 'Avaliação feita com sucesso!'); 
         Session::flash('alert-class', 'alert-success'); 
 
-        return redirect('publish');
+        return redirect('profile');
     }
 
     /**

@@ -11,21 +11,21 @@
         <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('feedbacks.store', ['i_hired'=> $i_hired, 'id'=> $post->id, 'user'=> $answer->users_id]) }}" method="get">
+                    <form action="{{ route('feedbacks.store', ['i_hired'=> $i_hired ? '1' : '0', 'id'=> $post->id, 'user'=> $answer->users_id]) }}" method="get">
                     @csrf
                         <div class="row">
                             <div class="col-md-9">
-                                <h4>{{ $i_hired ? 'Quem realizou meu serviço' : 'Quem me contratou' }}</h4>
-                                <p>{{ $i_hired ? $answer->name : $post->username }}</p>
+                                <h4>{{ $i_hired ? 'Prestador' : 'Contratante' }}</h4>
+                                <p>{{  $hire=='hirer' ?  ($i_hired ? $answer->name : $post->username) : ($i_hired ? $post->username : $answer->name)  }}</p>
                             </div>
                             <div class="col-md-3">
                                     <h4> </h4>
-                                    <button type="submit" class="btn btn-dark meu-botao">Avaliar {{ $i_hired ? 'Prestador' : 'Cliente'}}</button>
+                                    <button type="submit" class="btn btn-dark meu-botao">Avaliar {{ $i_hired ? 'Prestador' : 'Contratante'}}</button>
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-6">
-                                    <h4>Qual nota você daria para este {{ $i_hired ? 'Prestador' : 'Cliente' }}?</h4>
+                                    <h4>Qual nota você daria para este {{ $i_hired ? 'Prestador' : 'Contratante' }}?</h4>
                                     <select name="grade" id="grade" class="form-control" required>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -41,7 +41,7 @@
                                     </select>
                             </div>
                             <div class="col-md-6">
-                                    <h4>Deixe uma mensagem para {{ $i_hired ? $answer->name : $post->username }} (opcional)</h4>
+                                    <h4>Deixe uma mensagem para {{ $hire=='hirer' ?  ($i_hired ? $answer->name : $post->username) : ($i_hired ? $post->username : $answer->name) }} (opcional)</h4>
                                     <textarea class="form-control" name="message" cols="30" rows="10" placeholder="Insira sua mensagem aqui"></textarea>
                             </div>
                         </div>

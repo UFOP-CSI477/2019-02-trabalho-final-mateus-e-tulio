@@ -46,7 +46,7 @@ class PostController extends Controller
         Session::flash('message', 'Publicação criada com sucesso!'); 
         Session::flash('alert-class', 'alert-success'); 
 
-        return redirect('publish');
+        return redirect('profile');
 
     }
     
@@ -58,7 +58,7 @@ class PostController extends Controller
         Session::flash('message', 'Publicação excluída com sucesso!'); 
         Session::flash('alert-class', 'alert-success'); 
 
-        return redirect('publish');
+        return redirect('profile');
     }
 
     public function show($hire, $id)

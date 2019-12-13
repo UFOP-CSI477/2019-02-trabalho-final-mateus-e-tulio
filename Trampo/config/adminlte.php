@@ -134,7 +134,7 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => '/',
+    'dashboard_url' => 'profile',
 
     'logout_url' => 'logout',
 
@@ -195,8 +195,6 @@ return [
             'text'        => 'Avaliações',
             'url'         => 'feedbacks',
             'icon'        => 'far fa-fw fa-comment-alt',
-            'label'       => 4,
-            'label_color' => 'success',
         ],
         ['header' => 'Publicações'],
         [

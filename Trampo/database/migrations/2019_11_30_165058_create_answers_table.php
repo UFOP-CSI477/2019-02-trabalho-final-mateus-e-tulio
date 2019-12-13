@@ -14,12 +14,11 @@ class CreateAnswersTable extends Migration
     public function up()
     {
         Schema::create('answers', function (Blueprint $table) {
+            $table->bigIncrements('id');
 		    $table->bigInteger('posts_id')->unsigned();
 		    $table->bigInteger('users_id')->unsigned();
 		    $table->enum('viewed', ['Sim',  'Não'])->default('Não');
 		    $table->text('comment')->nullable();
-		    
-		    $table->primary('posts_id', 'users_id');
 		
 		    $table->index('users_id','fk_posts_has_users_users1_idx');
 		    $table->index('posts_id','fk_posts_has_users_posts1_idx');

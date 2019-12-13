@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-3 text-center">
+                        <div class="col-md-2 text-center">
                             <h4>Autor</h4>
                             <p>{{ $post->username }}</p>
                         </div>
@@ -20,7 +20,7 @@
                             <h4>Categoria</h4>
                             <p>{{ $post->category }}</p>
                         </div>
-                        <div class="col-md-2 text-center">
+                        <div class="col-md-3 text-center">
                             <h4>Local</h4>
                             <p>{{ $post->neighborhood . ' - ' . $post->city . ' - ' . $post->state }}</p>
                         </div>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     @if ($post->userid == auth()->user()->id)
-                        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalExcluir">Excluir Publicação</button>
+                        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalExcluir" {{$post->status == 'Concluído' ? 'disabled' : ''}}>Excluir Publicação</button>
                     @else
                         <a class="btn btn-dark" href="{{route('users.other_profile',['id'=>$post->userid])}}">Ver Perfil</a>
                     @endif

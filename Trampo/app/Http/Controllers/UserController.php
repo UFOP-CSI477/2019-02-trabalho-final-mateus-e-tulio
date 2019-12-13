@@ -59,8 +59,8 @@ class UserController extends Controller
 
         $user->save();
 
-        Session::flash('menssagem','Dados alterados com sucesso.');
-        Session::flash('classe-alerta', 'alert-success');
+        Session::flash('message','Dados alterados com sucesso.');
+        Session::flash('alert-class', 'alert-success');
 
         return redirect('profile');
     }

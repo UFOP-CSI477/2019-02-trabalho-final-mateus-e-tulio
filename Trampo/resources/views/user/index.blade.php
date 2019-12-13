@@ -3,9 +3,6 @@
 @section('title', ' - Perfil')
 
 @section('content_header')
-    @if (Session::has('menssagem'))
-    <div class="alert {{Session::get('classe-alerta','alert-info')}}">{{Session::get('menssagem')}}</div>
-    @endif
     <h1 class="m-0 text-dark">Perfil de {{$user->name}}</h1>
 @stop
 
@@ -14,6 +11,9 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
+                    @if (Session::has('message'))
+                    <div class="alert {{Session::get('alert-class','alert-info')}}">{{Session::get('message')}}</div>
+                    @endif
                     <div class="row">
                         <div class="col-md-6">
                             <label>Nome</label>
@@ -229,7 +229,7 @@
                                                     {{$post->username}} • {{$post->category}}
                                                 </p>
                                             </td>
-                                            <td><a class="btn btn-dark meu-outro-botao" href="{{ route('posts.show', ['hire' => 'hired', 'id' => $post->id]) }}">Ver mais</a></td>
+                                            <td><a class="btn btn-dark meu-outro-botao" href="{{ route('posts.show', ['hire' => 'hirer', 'id' => $post->id]) }}">Ver mais</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

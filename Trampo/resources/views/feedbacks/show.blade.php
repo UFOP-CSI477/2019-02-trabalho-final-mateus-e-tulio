@@ -11,21 +11,21 @@
         <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('feedbacks.update',  ['i_hired'=> $i_hired?'1':'0', 'id'=> $feedback->id]) }}" method="get">
+                    <form action="{{ route('feedbacks.update',  ['i_hired'=> $i_hired ? '1':'0', 'id'=> $feedback->id]) }}" method="get">
                     @csrf
                         <div class="row">
                             <div class="col-md-9">
-                                <h4>{{ $i_hired ? 'Quem realizou meu serviço' : 'Quem me contratou' }}</h4>
+                                <h4>{{ $i_hired ? 'Prestador' : 'Contratante' }}</h4>
                                 <p>{{ $i_hired ? $feedback->hired : $feedback->hirer }}</p>
                             </div>
                             <div class="col-md-3">
                                     <h4> </h4>
-                                    <button type="submit" class="btn btn-dark meu-botao">Avaliar {{ $i_hired ? 'Prestador' : 'Cliente'}}</button>
+                                    <button type="submit" class="btn btn-dark meu-botao">Avaliar {{ $i_hired ? 'Prestador' : 'Contratante'}}</button>
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-6">
-                                    <h4>Qual nota você daria para este {{ $i_hired ? 'Prestador' : 'Cliente' }}?</h4>
+                                    <h4>Qual nota você daria para este {{ $i_hired ? 'Prestador' : 'Contratante' }}?</h4>
                                     <select name="grade" id="grade" class="form-control" required>
                                         <option value="0">0</option>
                                         <option value="1">1</option>

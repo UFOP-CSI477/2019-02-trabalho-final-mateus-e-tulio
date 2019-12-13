@@ -11,9 +11,6 @@
         <div class="col-10 offset-1">
             <div class="card">
                 <div class="card-body">
-                    @if(Session::has('message'))
-                    <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
-                    @endif
                     <form action="{{ route('posts.store') }}" method="post">
                     @csrf
                         <div class="form-group">

@@ -63,15 +63,15 @@ class User extends Authenticatable
             if($nova_senha == $confirmacao_nova_senha){
                 $user->password = Hash::make($nova_senha);
                 $user->save();
-                Session::flash('menssagem','A senha foi alterada com sucesso.');
-                Session::flash('classe-alerta', 'alert-success');
+                Session::flash('message','A senha foi alterada com sucesso.');
+                Session::flash('alert-class', 'alert-success');
             }else{
-                Session::flash('menssagem','A nova senha não coincide com a confirmação da nova senha.');
-                Session::flash('classe-alerta', 'alert-danger');
+                Session::flash('message','A nova senha não coincide com a confirmação da nova senha.');
+                Session::flash('alert-class', 'alert-danger');
             }
         }else{
-            Session::flash('menssagem','A senha atual informada não coincide com a correta.');
-            Session::flash('classe-alerta', 'alert-danger');
+            Session::flash('message','A senha atual informada não coincide com a correta.');
+            Session::flash('alert-class', 'alert-danger');
         }
     }
 
