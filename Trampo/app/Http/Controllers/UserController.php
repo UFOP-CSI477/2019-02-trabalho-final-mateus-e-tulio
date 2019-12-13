@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Post;
 use App\Answer;
+use App\Feedback;
 use Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -88,7 +89,7 @@ class UserController extends Controller
         
         $answers->update(array('viewed' => 'Sim'));
 
-        return view('user.notifications', ['answers' => $answers->get()]);
+        return view('user.notifications', ['answers' => $answers->paginate('10')]);
     }
 
     public function sendMessageTo($title, $id){

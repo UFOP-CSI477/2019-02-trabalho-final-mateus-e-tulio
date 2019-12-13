@@ -16,7 +16,25 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        //
+        $feedbacks = Feedback::join('posts', 'feedback.posts_id', 'posts.id')
+            ->where(function ($query) {
+                $query->where('posts.hirer_id', auth()->user()->id)
+                    ->whereNull('feedback.hireds_score');
+            })->orWhere(function ($query) {
+                $query->where('posts.hired_id', auth()->user()->id)
+                    ->whereNull('feedback.hirers_score');
+            });
+
+        $feedbacks_r = Feedback::join('posts', 'feedback.posts_id', 'posts.id')
+            ->where(function ($query) {
+                $query->where('posts.hirer_id', auth()->user()->id)
+                    ->whereNotNull('feedback.hireds_score');
+            })->orWhere(function ($query) {
+                $query->where('posts.hired_id', auth()->user()->id)
+                    ->whereNotNull('feedback.hirers_score');
+            });
+        
+        return view('feedbacks.index', ['feedbacks_r' => $feedbacks_r->get(), 'feedbacks' => $feedbacks->get()]);
     }
 
     /**
@@ -39,22 +57,23 @@ class FeedbackController extends Controller
     {
         $feedback = new Feedback;
         $feedback->posts_id = $id;
-        if ($i_hired) {
-            $feedback->hirers_score = $request->grade;
-            $feedback->message_for_hirer = $request->message;
-        } else {
-            $feedback->hireds_score = $request->grade;
-            $feedback->message_for_hired = $request->message;
-        }
-        $feedback->save();
 
         $post = Post::findOrFail($id);
         $post->status = 'Concluído';
-        $post->save();
 
-        $answer = Answer::where('posts_id', $id)->where('users_id', $user)->first();
-        $answer->solved = 'Sim';
-        $answer->save();
+        
+        if ($i_hired) {
+            $feedback->hireds_score = $request->grade;
+            $feedback->message_for_hired = $request->message;
+            $post->hired_id = $user;
+        } else {
+            $feedback->hirers_score = $request->grade;
+            $feedback->message_for_hirer = $request->message;
+            $post->hirer_id = $user;
+        }
+
+        $feedback->save();
+        $post->save();
         
         Session::flash('message', 'Avaliação feita com sucesso!'); 
         Session::flash('alert-class', 'alert-success'); 
@@ -62,15 +81,19 @@ class FeedbackController extends Controller
         return redirect('publish');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Feedback  $feedback
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Feedback $feedback)
+    public function show($id)
     {
-        //
+        $feedback = Feedback::select('posts.id AS id', 'hirer.name AS hirer', 'hired.name AS hired', 'posts.title AS title')
+            ->join('posts', 'feedback.posts_id', 'posts.id')
+            ->join('users AS hirer', 'posts.hirer_id', 'hirer.id')
+            ->join('users AS hired', 'posts.hired_id', 'hired.id')
+            ->where('posts.id', $id)
+            ->where(function ($query) {
+                $query->where('posts.hirer_id', auth()->user()->id)
+                ->orWhere('posts.hired_id', auth()->user()->id);
+            })->first();
+
+        return view('feedbacks.show', ['feedback' => $feedback, 'i_hired' => $feedback->hirer_id == auth()->user()->id]);
     }
 
     /**
@@ -84,16 +107,23 @@ class FeedbackController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Feedback  $feedback
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Feedback $feedback)
+    public function update(Request $request, $i_hired, $id)
     {
-        //
+        $feedback = Feedback::findOrFail($id);
+        if ($i_hired==1) {
+            $feedback->hireds_score = $request->grade;
+            $feedback->message_for_hired = $request->message;
+        } else {
+            $feedback->hirers_score = $request->grade;
+            $feedback->message_for_hirer = $request->message;
+        }
+
+        $feedback->save();
+        
+        Session::flash('message', 'Avaliação feita com sucesso!'); 
+        Session::flash('alert-class', 'alert-success'); 
+
+        return redirect('publish');
     }
 
     /**

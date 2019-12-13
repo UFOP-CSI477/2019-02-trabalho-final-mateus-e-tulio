@@ -28,6 +28,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('posts', 'PostController');
     Route::resource('feedbacks', 'FeedbackController');
     Route::get('/feedbacks/store/{i_hired}/{id}/{user}', 'FeedbackController@store')->name('feedbacks.store');
+    Route::get('/feedbacks/show/{id}', 'FeedbackController@show')->name('feedbacks.show');
+    Route::get('/feedbacks/update/{i_hired}/{id}', 'FeedbackController@update')->name('feedbacks.update');
     Route::get('/posts/{hire}/{id}', 'PostController@show')->name('posts.show');
     Route::get('/posts/rate/{hire}/{id}/{user}', 'PostController@rate')->name('posts.rate');
     Route::get('/profile/{id}','UserController@otherProfile')->name('users.other_profile');
