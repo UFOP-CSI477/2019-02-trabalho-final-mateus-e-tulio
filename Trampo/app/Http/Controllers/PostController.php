@@ -36,17 +36,30 @@ class PostController extends Controller
         }
         $newPost->cep = $cep;
 
-        $local = json_decode(file_get_contents('https://viacep.com.br/ws/'. preg_replace('/\D/', '', $cep) .'/json/'), true);
-        $newPost->state = $local['uf'];
-        $newPost->city = $local['localidade'];
-        $newPost->neighborhood = $local['bairro'];
+        if(strlen($cep) == 10){
+            $local = json_decode(file_get_contents('https://viacep.com.br/ws/'. preg_replace('/\D/', '', $cep) .'/json/'), true);
+            
+            if(isset($local['erro']) && $local['erro'] == true){
+                Session::flash('message', 'O CPF informado não é valido.'); 
+                Session::flash('alert-class', 'alert-danger'); 
+            }else{
+                $newPost->state = $local['uf'];
+                $newPost->city = $local['localidade'];
+                $newPost->neighborhood = $local['bairro'];
+        
+                $newPost->save();
+        
+                Session::flash('message', 'Publicação criada com sucesso!'); 
+                Session::flash('alert-class', 'alert-success');
 
-        $newPost->save();
+                return redirect('profile');
+            }
+        }else{
+            Session::flash('message', 'Informe o CPF por completo.'); 
+            Session::flash('alert-class', 'alert-danger'); 
+        }
 
-        Session::flash('message', 'Publicação criada com sucesso!'); 
-        Session::flash('alert-class', 'alert-success'); 
-
-        return redirect('profile');
+        return redirect('publish');
 
     }
     
