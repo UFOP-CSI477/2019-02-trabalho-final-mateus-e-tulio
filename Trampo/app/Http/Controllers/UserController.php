@@ -29,7 +29,10 @@ class UserController extends Controller
         $auxHirers = $hirersFeedbacks->avg('hirers_score');
         $avgHirers = $auxHirers == '' ? 0 : intval($auxHirers*10);
 
-        return view('user.index',compact('user','countHireds','avgHireds','countHirers','avgHirers'));
+        $servicosPrestados = $userObject->servicosPrestados($user->id);
+        $servicosSolicitados = $userObject->servicosSolicitados($user->id);
+
+        return view('user.index',compact('user','countHireds','avgHireds','countHirers','avgHirers','servicosPrestados','servicosSolicitados'));
     }
 
     public function otherProfile($id)

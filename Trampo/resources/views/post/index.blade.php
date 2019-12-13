@@ -2,33 +2,33 @@
 
 @section('title', ' - Publicações')
 
-@section('content_header')
-    <h1 class="m-0 text-dark">{{ $post->category }}</h1>
-@stop
-
 @section('content')
     <div class="row">
         <div class="col-md-10 offset-1">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3 text-center">
                             <h4>Autor</h4>
                             <p>{{ $post->username }}</p>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 text-center">
                             <h4>Tipo</h4>
                             <p>{{ $post->author_type }} de serviços</p>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2 text-center">
+                            <h4>Categoria</h4>
+                            <p>{{ $post->category }}</p>
+                        </div>
+                        <div class="col-md-2 text-center">
                             <h4>Local</h4>
                             <p>{{ $post->neighborhood . ' - ' . $post->city . ' - ' . $post->state }}</p>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2 text-center">
                             <h4>Status</h4>
                             <p>{{ $post->status }}</p>
                         </div>
-                        <div class="col-md-12 mt-2">
+                        <div class="col-md-12 mt-2 text-center">
                             <h2>{{ $post->title }}</h2>
                             <p>{{ $post->description }}</p>
                         </div>

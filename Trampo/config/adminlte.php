@@ -191,6 +191,13 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Avaliações',
+            'url'         => 'feedbacks',
+            'icon'        => 'far fa-fw fa-comment-alt',
+            'label'       => 4,
+            'label_color' => 'success',
+        ],
         ['header' => 'Publicações'],
         [
             'text' => 'Encontrar Trabalho',

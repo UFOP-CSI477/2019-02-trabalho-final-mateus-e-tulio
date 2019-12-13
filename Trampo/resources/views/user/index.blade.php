@@ -73,10 +73,10 @@
                 <div class="card-body">
                     <label>Serviços Anteriores</label>
                     <div class="col-md-12">
-                        <a class="btn btn-dark meu-botao">Serviços Prestados</a>
+                        <a type="button" class="btn btn-dark meu-botao" data-toggle="modal" data-target="#modalServicosPrestados">Serviços Prestados</a>
                     </div>
                     <div class="col-md-12 mt-3">
-                        <a class="btn btn-dark meu-botao">Serviços Solicitados</a>
+                        <a type="button" class="btn btn-dark meu-botao" data-toggle="modal" data-target="#modalServicosSolicitados">Serviços Solicitados</a>
                     </div>
                 </div>
             </div>
@@ -150,6 +150,98 @@
                 </div>
             </form>
             </div>
+        </div>
+    </div>
+
+    {{-- Modal Listar Serviços Prestados --}}
+    <div class="modal fade" id="modalServicosPrestados" tabindex="-1" role="dialog" aria-labelledby="modalServicosPrestados" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modalServicosPrestados">Serviços Prestados</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Publicação</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($servicosPrestados as $post)
+                                        <tr>
+                                            <td>
+                                                <h3>{{ $post->title }}</h3>
+                                                <p class="text-muted">
+                                                    {{$post->username}} • {{$post->category}}
+                                                </p>
+                                            </td>
+                                            <td><a class="btn btn-dark meu-outro-botao" href="{{ route('posts.show', ['hire' => 'hired', 'id' => $post->id]) }}">Ver mais</a></td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    {{-- Modal Listar Serviços Solicitados --}}
+    <div class="modal fade" id="modalServicosSolicitados" tabindex="-1" role="dialog" aria-labelledby="modalServicosSolicitados" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modalServicosSolicitados">Serviços Solicitados</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Publicação</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($servicosSolicitados as $post)
+                                        <tr>
+                                            <td>
+                                                <h3>{{ $post->title }}</h3>
+                                                <p class="text-muted">
+                                                    {{$post->username}} • {{$post->category}}
+                                                </p>
+                                            </td>
+                                            <td><a class="btn btn-dark meu-outro-botao" href="{{ route('posts.show', ['hire' => 'hired', 'id' => $post->id]) }}">Ver mais</a></td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
         </div>
     </div>
 @stop

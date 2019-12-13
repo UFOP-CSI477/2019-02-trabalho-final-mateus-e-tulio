@@ -74,4 +74,20 @@ class User extends Authenticatable
             Session::flash('classe-alerta', 'alert-danger');
         }
     }
+
+    public function servicosPrestados($id){
+        return Post::select('posts.id AS id', 'author_type','title','description','users.name AS username','categories.name AS category','users.id AS userid')
+        ->join('categories', 'categories.id', '=', 'categories_id')
+        ->join('users', 'users.id', '=', 'hired_id')
+        ->where('hired_id',$id)
+        ->get();
+    }
+
+    public function servicosSolicitados($id){
+        return Post::select('posts.id AS id', 'author_type','title','description','users.name AS username','categories.name AS category','users.id AS userid')
+        ->join('categories', 'categories.id', '=', 'categories_id')
+        ->join('users', 'users.id', '=', 'hirer_id')
+        ->where('hirer_id',$id)
+        ->get();
+    }
 }
