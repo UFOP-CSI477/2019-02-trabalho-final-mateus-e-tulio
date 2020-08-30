@@ -53,7 +53,13 @@
   ### 5. Configuração do Ambiente
 
   1. Criar um banco de dados vazio chamado `trampo`
-  2. Executar em /Trampo: `php artisan migrate`
+  2. Acessar a pasta Trampo:
+      1. Copiar `.env.example` para `.env`
+      2. Definir no `.env` as credenciais de acesso ao banco de dados
+      3. Executar no terminal/cmd -> `composer install`
+      4. Executar no terminal/cmd -> `php artisan key:generate`
+      5. Executar no terminal/cmd -> `php artisan migrate`
+      5. Para acessar o projeto -> Executar no terminal/cmd -> `php artisan serve`
   
   [publicacao]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/publicacao.png "Tela de criação de publicações"
   [servicos]: https://raw.githubusercontent.com/UFOP-CSI477/2019-02-trabalho-final-mateus-e-tulio/master/Prototypes/servicos.png "Tela de listagem de serviços"
