@@ -2,6 +2,11 @@
 
 @section('title', ' - Encontrar Trabalho')
 
+@section('css')
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
+    <link rel="stylesheet" href="{{ asset('css/styles.css')}}">
+@stop
+
 @section('content_header')
     <h1 class="m-0 text-dark">Encontrar Trabalho</h1>
 @stop

@@ -2,6 +2,11 @@
 
 @section('title', ' - Publicações')
 
+@section('css')
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
+    <link rel="stylesheet" href="{{ asset('css/styles.css')}}">
+@stop
+
 @section('content')
     <div class="row">
         <div class="col-md-10 offset-1">
