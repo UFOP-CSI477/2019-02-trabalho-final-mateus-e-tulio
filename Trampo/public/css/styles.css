@@ -1,0 +1,23 @@
+body {
+    font-family: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial, sans-serif';
+}
+
+.sidebar {
+    font-size: 95%;
+}
+
+.meu-botao {
+    color: white !important;
+    cursor: pointer;
+    width: 100%;
+}
+
+.meu-outro-botao {
+    float: right;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em
+}
+
+td, th {
+    max-width: 500px;
+}

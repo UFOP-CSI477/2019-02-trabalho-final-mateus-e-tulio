@@ -1,0 +1,76 @@
+INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Jardinagem', NULL, NULL),
+(2, 'Elétrica', NULL, NULL),
+(3, 'Hidráulica', NULL, NULL),
+(4, 'Pintura', NULL, NULL),
+(5, 'Alvenaria', NULL, NULL),
+(6, 'Mecânica', NULL, NULL),
+(7, 'Transporte', NULL, NULL),
+(8, 'Buffet', NULL, NULL),
+(9, 'Babá', NULL, NULL),
+(10, 'Faxina', NULL, NULL),
+(11, 'Outros', NULL, NULL);
+
+INSERT INTO `users` (`id`, `cpf`, `name`, `email`, `password`, `phone_number`, `cep`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, '187.116.990-94', 'Túlio Jardim', 'tuliojardim@visaojr.com.br', '$2y$10$E5CaOQ6dRo.xJS.uwC4dEu/j28CXyOIedxLLB6jVvykUHAJY1/p0S', '(31) 9-9351-1055', '12.316-350', NULL, NULL, NULL, '2019-12-13 03:53:25'),
+(2, '822.664.040-75', 'Tulinho Gameplays', 'tuliosjardim@gmail.com', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-5421-7584', '58.046-541', NULL, NULL, NULL, NULL),
+(3, '806.240.070-06', 'Clara Andrade', 'luizaandrade@hotmail.com', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-9823-5123', '49.035-100', NULL, NULL, NULL, NULL),
+(4, '120.193.830-98', 'Eufrásio Best Jungle Br', 'elefrasio@gmail.com', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-8757-2223', '63.122-260', NULL, NULL, NULL, NULL),
+(5, '769.909.620-70', 'Mateus Peres', 'mperes@bol.com.br', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-8766-2591', '68.911-055', NULL, NULL, NULL, NULL),
+(6, '657.261.950-86', 'Alvaro Ferreira', 'alvarofrr@gmail.com', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-7689-6535', '35.680-317', NULL, NULL, NULL, NULL),
+(7, '873.453.310-91', 'João Pedro Esteves', 'jpesteves@yahoo.com.br', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-8856-9012', '36.201-593', NULL, NULL, NULL, NULL),
+(8, '326.075.770-80', 'Sívio Luis', 'silvioluis22@ig.com.br', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-9566-5231', '35.160-204', NULL, NULL, NULL, NULL),
+(9, '838.408.920-58', 'Alexandre Nunes', 'alexandrenunes@hotmail.com', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-8864-2323', '35.162-449', NULL, NULL, NULL, NULL),
+(10, '553.956.860-53', 'Antonio Rodrigues', 'antoniorod@outlook.com', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-8765-3245', '35.163-147', NULL, NULL, NULL, NULL),
+(11, '430.113.710-67', 'Rafael Castro', 'rafacastro@gmail.com', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-9867-9022', '35.162-466', NULL, NULL, NULL, NULL),
+(12, '632.021.100-80', 'Igor Cota', 'igorcastro@gmail.com', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-9854-3221', '35.162-448', NULL, NULL, NULL, NULL),
+(13, '636.156.770-21', 'Leonardo Araujo', 'leoaraujo@yahoo.com.br', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-9657-9024', '41.204-385', NULL, NULL, NULL, NULL),
+(14, '116.310.920-73', 'Leandro Moreira', 'leandromoreira@gmail.com', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-9677-2413', '53.565-363', NULL, NULL, NULL, NULL),
+(15, '449.193.830-02', 'Antonio Nunes', 'toninho@hotmail.com', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-9823-4900', '88.070-030', NULL, NULL, NULL, NULL),
+(16, '473.296.980-16', 'Jorge Henrique', 'jorgehenrique@gmail.com', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-8865-3494', '54.280-482', NULL, NULL, NULL, NULL),
+(17, '156.815.090-36', 'Henrique Pedroti', 'henriquepdt@gmail.com', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-9654-7786', '13.560-350', NULL, NULL, NULL, NULL),
+(18, '561.560.590-16', 'Luiza Cruz', 'luizacruz@hotmail.com', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-9876-3466', '29.121-325', NULL, NULL, NULL, NULL),
+(19, '808.981.240-69', 'Ana Maria', 'anacmaria99@outlook.com', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-9827-1231', '49.065-530', NULL, NULL, NULL, NULL),
+(20, '866.556.310-50', 'Marlon Castro', 'marlonc92@gmail.com', '$2y$12$D99NWJitC.uHqTUfW2hdMO39RKxYNTp2XyXSmoRnZUzeGSRuRQpxW', '(31) 9-9899-2387', '50.970-300', NULL, NULL, NULL, NULL);
+
+INSERT INTO `posts` (`id`, `categories_id`, `hirer_id`, `hired_id`, `author_type`, `title`, `description`, `cep`, `state`, `city`, `neighborhood`, `status`, `created_at`, `updated_at`) VALUES
+(1, 11, 1, NULL, 'Contratante', 'Alugar Casa', 'Procura alguém que possa me alugar uma casa em Guarapari!', '12.316-350', 'SP', 'Jacareí', 'Jardim Paraíso', 'Em Andamento', '2019-12-13 05:21:08', '2019-12-13 05:21:08'),
+(2, 4, 1, NULL, 'Contratante', 'Pintar Quarto', 'Preciso de alguém que pinte meu quarto de verde.', '12.316-350', 'SP', 'Jacareí', 'Jardim Paraíso', 'Em Andamento', '2019-12-13 05:22:16', '2019-12-13 05:22:16'),
+(3, 1, 11, 1, 'Prestador', 'Aparar Jardim', 'Estou disponível para aparar jardim de médio porte.', '35.162-448', 'MG', 'Ipatinga', 'Limoeiro', 'Concluído', '2019-12-13 05:23:03', '2019-12-13 05:05:32'),
+(4, 7, NULL, 11, 'Prestador', 'Fazer transporte em van', 'Estou disponível para realizar transporte no dia 15/12 à noite.', '35.162-466', 'MG', 'Ipatinga', 'Limoeiro', 'Em Andamento', '2019-12-13 05:25:38', '2019-12-13 05:25:38'),
+(5, 10, 11, NULL, 'Contratante', 'Faxina Pós Formatura', 'Estou procurando alguém que possa limpar o salão no qual ocorrerá uma formatura dia 14/12.', '35.162-466', 'MG', 'Ipatinga', 'Limoeiro', 'Em Andamento', '2019-12-13 05:26:52', '2019-12-13 05:26:52'),
+(6, 10, NULL, 10, 'Prestador', 'Faxina para o dia 18/12', 'Estou disponível para fazer faxina dia 18/12.', '35.163-147', 'MG', 'Ipatinga', 'Fontes', 'Em Andamento', '2019-12-13 05:32:02', '2019-12-13 05:32:02'),
+(7, 3, 10, NULL, 'Contratante', 'Pia', 'Preciso de um encanador para dar um jeito na minha pia', '35.163-147', 'MG', 'Ipatinga', 'Fontes', 'Em Andamento', '2019-12-13 05:33:06', '2019-12-13 05:33:06'),
+(8, 9, NULL, 19, 'Prestador', 'Cuido de criança em 17/12', 'Estou disponível para cuidar de criança no dia 17/12 na parte da tarde.', '49.065-530', 'SE', 'Aracaju', 'Industrial', 'Em Andamento', '2019-12-13 05:34:22', '2019-12-13 05:34:22'),
+(9, 6, 19, NULL, 'Contratante', 'Carro com problema', 'Preciso de alguém que possa dar uma olhada no meu carro, meu vizinho disse que a rebimboca da parafuseta esta quebrada', '49.065-530', 'SE', 'Aracaju', 'Industrial', 'Em Andamento', '2019-12-13 05:35:39', '2019-12-13 05:35:39'),
+(10, 11, NULL, 18, 'Prestador', 'Lavo carro', 'Lavo carro no dia 14/12 na parte da manhã', '29.121-325', 'ES', 'Vila Velha', 'Cavalieri', 'Em Andamento', '2019-12-13 05:37:10', '2019-12-13 05:37:10'),
+(11, 8, 18, NULL, 'Contratante', 'Buffet Casamento', 'Procuro Buffet para o meu casamento, que será no dia 22/12', '29.121-325', 'ES', 'Vila Velha', 'Cavalieri', 'Em Andamento', '2019-12-13 05:37:54', '2019-12-13 05:37:54'),
+(12, 2, 18, NULL, 'Contratante', 'Parte elétrica casa', 'Procuro um eletricista para fazer a parte elétrica da minha casa', '29.121-325', 'ES', 'Vila Velha', 'Cavalieri', 'Em Andamento', '2019-12-13 05:38:18', '2019-12-13 05:38:18'),
+(13, 1, 18, NULL, 'Contratante', 'Jardinagem', 'Tenho um pequeno jardim para ser cuidado, preciso de alguém.', '29.121-325', 'ES', 'Vila Velha', 'Cavalieri', 'Em Andamento', '2019-12-13 05:38:48', '2019-12-13 05:38:48'),
+(14, 7, NULL, 6, 'Prestador', 'Transporte - Micro ônibus', 'Faço transporte de micro ônibus no dia 13/12 de noite.', '35.680-317', 'MG', 'Itaúna', 'Graças', 'Em Andamento', '2019-12-13 05:42:12', '2019-12-13 05:42:12'),
+(15, 5, 6, NULL, 'Contratante', 'Muro', 'Procuro um pedreiro para fazer um muro em minha casa', '35.680-317', 'MG', 'Itaúna', 'Graças', 'Em Andamento', '2019-12-13 05:42:44', '2019-12-13 05:42:44'),
+(16, 9, 6, NULL, 'Contratante', 'Serviços de babá', 'Preciso de uma babá para ficar com minhas crianças no próximo fim de semana', '35.680-317', 'MG', 'Itaúna', 'Graças', 'Em Andamento', '2019-12-13 05:43:07', '2019-12-13 05:43:07'),
+(17, 3, 6, NULL, 'Contratante', 'Chuveiro estragado', 'Meu chuveiro parou de sair água quente, preciso que alguém dê uma olhada', '35.680-317', 'MG', 'Itaúna', 'Graças', 'Em Andamento', '2019-12-13 05:43:25', '2019-12-13 05:43:25'),
+(18, 7, 17, NULL, 'Contratante', 'Van para casamento', 'Procuro um motorista que possa levar 18 pessoas para um casamento dia 17/11', '13.560-350', 'SP', 'São Carlos', 'Vila Monteiro (Gleba I)', 'Em Andamento', '2019-12-13 05:44:04', '2019-12-13 05:44:04'),
+(19, 2, 17, NULL, 'Contratante', 'Tomadas com problema', 'As tomadas da minha casa não estão funcionando, procurando eletricista urgente!', '13.560-350', 'SP', 'São Carlos', 'Vila Monteiro (Gleba I)', 'Em Andamento', '2019-12-13 05:46:15', '2019-12-13 05:46:15'),
+(20, 11, 17, NULL, 'Contratante', 'Formatar computador', 'Procuro alguém que possa formatar meu computador!', '13.560-350', 'SP', 'São Carlos', 'Vila Monteiro (Gleba I)', 'Em Andamento', '2019-12-13 05:46:43', '2019-12-13 05:46:43'),
+(21, 11, 2, NULL, 'Contratante', 'Cuidar de Idoso', 'Procuro alguém que possa cuidar dos meus avós', '58.046-541', 'PB', 'João Pessoa', 'Portal do Sol', 'Em Andamento', '2019-12-13 05:47:28', '2019-12-13 05:47:28'),
+(22, 11, 2, NULL, 'Contratante', 'Costureira', 'Procuro alguém que possa costurar meu terno', '58.046-541', 'PB', 'João Pessoa', 'Portal do Sol', 'Em Andamento', '2019-12-13 05:47:53', '2019-12-13 05:47:53'),
+(23, 2, 1, NULL, 'Contratante', 'Resistência de chuveiro', 'Preciso de alguém pra trocar a resistência do meu chuveiro.', '12.316-350', 'SP', 'Jacareí', 'Jardim Paraíso', 'Em Andamento', '2019-12-13 03:44:16', '2019-12-13 03:44:16'),
+(24, 4, 1, NULL, 'Contratante', 'Pintura rápida', 'Preciso que alguém pinte meu quarto em um dia.', '12.316-350', 'SP', 'Jacareí', 'Jardim Paraíso', 'Em Andamento', '2019-12-13 03:47:42', '2019-12-13 03:47:42'),
+(25, 5, 1, NULL, 'Contratante', 'Mureta', 'Preciso de alguém pra fazer a mureta da minha casa.', '12.316-350', 'SP', 'Jacareí', 'Jardim Paraíso', 'Em Andamento', '2019-12-13 03:51:32', '2019-12-13 03:51:32'),
+(26, 6, 11, 1, 'Contratante', 'Furou pneu do carro', 'Não sei usar o macaco.', '35.162-466', 'MG', 'Ipatinga', 'Limoeiro', 'Concluído', '2019-12-13 04:51:03', '2019-12-13 05:00:50');
+
+INSERT INTO `answers` (`id`, `posts_id`, `users_id`, `viewed`, `comment`, `created_at`, `updated_at`) VALUES
+(1, 3, 2, 'Sim', 'Tenho interesse. Moro no seu bairro. Favor entrar em contato.', '2019-12-13 05:48:34', '2019-12-13 05:48:34'),
+(2, 20, 2, 'Não', 'Tenho experiência em formatar computadores e não cobro caro. Entre em contato, por favor.', '2019-12-13 05:49:12', '2019-12-13 05:49:12'),
+(3, 10, 2, 'Não', NULL, '2019-12-13 05:49:20', '2019-12-13 05:49:20'),
+(4, 3, 11, 'Sim', NULL, '2019-12-13 03:39:51', '2019-12-13 03:39:51'),
+(5, 20, 11, 'Não', 'Sei formatar muito bem.', '2019-12-13 03:40:42', '2019-12-13 03:40:42'),
+(6, 20, 12, 'Não', 'Sei formatar.', '2019-12-13 03:41:45', '2019-12-13 03:41:45'),
+(7, 26, 1, 'Sim', 'Sei usar o macaco.', '2019-12-13 04:53:47', '2019-12-13 04:53:47'),
+(8, 1, 11, 'Não', NULL, '2019-12-13 05:13:43', '2019-12-13 05:13:43');
+
+INSERT INTO `feedback` (`posts_id`, `hirers_score`, `hireds_score`, `message_for_hirer`, `message_for_hired`, `created_at`, `updated_at`) VALUES
+(3, 9, 10, 'Gostei muito.', 'Demais.', '2019-12-13 04:48:14', '2019-12-13 04:48:48'),
+(26, 10, 7, 'Excelente o seu serviço!', 'Quase muito bom.', '2019-12-13 05:00:50', '2019-12-13 05:01:30');
