@@ -188,8 +188,6 @@ return [
             'text'        => 'Notificações',
             'url'         => 'notifications',
             'icon'        => 'far fa-fw fa-bell',
-            'label'       => 4,
-            'label_color' => 'success',
         ],
         [
             'text'        => 'Avaliações',
